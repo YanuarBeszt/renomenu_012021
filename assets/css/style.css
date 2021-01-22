@@ -1,0 +1,13 @@
+@font-face {
+	font-family: bolo;
+	src: url(../font/Baloo2-Regular.ttf);
+}
+@font-face {
+	font-family: bolo;
+	font-weight: bold;
+	src: url(../font/Baloo2-Bold.ttf);
+}
+
+body {
+	font-family: bolo;
+}
