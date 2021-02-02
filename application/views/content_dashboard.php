@@ -37,12 +37,12 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-          <a href="<?= base_url('Topics'); ?>">
+          <a href="<?= base_url('Category'); ?>">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-book"></i></span>
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-stream"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text text-dark">Input Data Topics</span>
+                <span class="info-box-text text-dark">Input Data Category</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -67,7 +67,7 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
           <a href="<?= base_url('Blog'); ?>">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-newspaper"></i></span>
+              <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-newspaper"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text text-dark">Input Data Blog</span>
@@ -78,13 +78,24 @@
           <!-- /.info-box -->
         </div>
         <!-- /.col -->
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+        <!-- <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
           <a href="<?= base_url('Blog_Keyword'); ?>">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-newspaper"></i></span>
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-key"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text text-dark">Input Data Blog Keyword</span>
+              </div>
+            </div>
+          </a>
+        </div> -->
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+          <a href="<?= base_url('Banner'); ?>">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-dark elevation-1"><i class="fas fa-tv"></i></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text text-dark">Input Data Banner</span>
               </div>
               <!-- /.info-box-content -->
             </div>

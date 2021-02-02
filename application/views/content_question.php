@@ -50,13 +50,13 @@
           <div class="card card-primary">
             <div class="card-header">
               <div style="float: left; padding-top: 10px;">
-                <h3 class="card-title"></h3>
+                <h3 class="card-title">Data Blog</h3>
               </div>
-              <div style="float: right; padding-top: 5px;">
+              <!-- <div style="float: right; padding-top: 5px;">
                 <span>Language : </span>
                 <a class="btn btn-dark disabled" id="btn_lang_ina"><img src="<?= base_url("/assets") ?>/img/id.png" width="25" title="Indonesia"> INA</a>
                 <a class="btn btn-dark" id="btn_lang_en"><img src="<?= base_url("/assets") ?>/img/en.png" width="25" title="English"> EN</a>
-              </div>
+              </div> -->
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -69,14 +69,14 @@
                     </div>
                     <div class="form-group col-md-4">
                       <br>
-                      <label for="idTopic">Topic</label>
-                      <select class="form-control select idPFTopic" style="width: 100%;" id="idTopic" name="idTopic">
-                        <option value="">-- Choose Topic --</option>
-                        <?php foreach ($topicDropdown as $key) : ?>
-                          <option value="<?= $key->id; ?>"><?= $key->nameTopic; ?> - <?= $key->namePF; ?></option>
+                      <label for="idCategory">Category</label>
+                      <select class="form-control select idPFCategory" style="width: 100%;" id="idCategory" name="idCategory">
+                        <option value="">-- Choose Category --</option>
+                        <?php foreach ($categoryDropdown as $key) : ?>
+                          <option value="<?= $key->id; ?>"><?= $key->name; ?></option>
                         <?php endforeach; ?>
                       </select>
-                      <div class="error-Topic col-sm-10 mt-2" style="display: none;">
+                      <div class="error-Category col-sm-10 mt-2" style="display: none;">
                         <h5 style="font-size: 16px; color: red;">Tidak Boleh Kosong</h5>
                       </div>
                     </div>
@@ -131,7 +131,7 @@
                           <tr>
                             <th>No.</th>
                             <th>Question</th>
-                            <th>Platform - Topic</th>
+                            <th>Category</th>
                             <th>Status</th>
                             <th>#</th>
                           </tr>
@@ -160,7 +160,7 @@
                 </div>
               </form>
             </div>
-            <div id="en">
+            <!-- <div id="en">
               <form role="form">
                 <div id="questionF_en">
                   <div class="card-body">
@@ -169,14 +169,14 @@
                     </div>
                     <div class="form-group col-md-4">
                       <br>
-                      <label for="idTopic_en">Topic</label>
-                      <select class="form-control select idPFTopic_en" style="width: 100%;" id="idTopic_en" name="idTopic_en">
-                        <option value="">-- Choose Topic --</option>
-                        <?php foreach ($topicDropdown as $key) : ?>
-                          <option value="<?= $key->id; ?>"><?= $key->nameTopic; ?> - <?= $key->namePF; ?></option>
+                      <label for="idCategory_en">Category</label>
+                      <select class="form-control select idPFCategory_en" style="width: 100%;" id="idCategory_en" name="idCategory_en">
+                        <option value="">-- Choose Category --</option>
+                        <?php foreach ($CategoryDropdown as $key) : ?>
+                          <option value="<?= $key->id; ?>"><?= $key->nameCategory; ?> - <?= $key->namePF; ?></option>
                         <?php endforeach; ?>
                       </select>
-                      <div class="error-Topic_en col-sm-10 mt-2" style="display: none;">
+                      <div class="error-Category_en col-sm-10 mt-2" style="display: none;">
                         <h5 style="font-size: 16px; color: red;">Tidak Boleh Kosong</h5>
                       </div>
                     </div>
@@ -231,7 +231,7 @@
                           <tr>
                             <th>No.</th>
                             <th>Question</th>
-                            <th>Platform - Topic</th>
+                            <th>Platform - Category</th>
                             <th>Status</th>
                             <th>#</th>
                           </tr>
@@ -241,33 +241,33 @@
                       </table>
                     </div>
                   </div>
-                </div>
-                <!-- /.card-body -->
+                </div> -->
+            <!-- /.card-body -->
 
-                <div class="card-footer_en">
-                  <div class="col-sm-6">
-                    <button type="submit" class="btn btn-block btn-primary" id="store_btn_en">Submit</button>
-                  </div>
-                  <div class="row tempat-edit_en" style="display:none;">
-                    <div class="col-sm-6">
-                      <input type="hidden" class="form-control" id="hiddenVal_en" name="hiddenVal_en">
-                      <button type="submit" id="update_btn_en" class="btn btn-block btn-primary">Save</button>
-                    </div>
-                    <div class="col-sm-6">
-                      <button type="button" id="cancel_btn_en" style="background-color:#b5bbc8;" class="btn btn-block">Cancel</button>
-                    </div>
-                  </div>
+            <div class="card-footer_en">
+              <div class="col-sm-6">
+                <button type="submit" class="btn btn-block btn-primary" id="store_btn_en">Submit</button>
+              </div>
+              <div class="row tempat-edit_en" style="display:none;">
+                <div class="col-sm-6">
+                  <input type="hidden" class="form-control" id="hiddenVal_en" name="hiddenVal_en">
+                  <button type="submit" id="update_btn_en" class="btn btn-block btn-primary">Save</button>
                 </div>
-              </form>
+                <div class="col-sm-6">
+                  <button type="button" id="cancel_btn_en" style="background-color:#b5bbc8;" class="btn btn-block">Cancel</button>
+                </div>
+              </div>
             </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-    <!-- /.row -->
-    <!-- ./card -->
-    <!-- /.col -->
-  </section>
+</div>
+<!-- /.row -->
+<!-- ./card -->
+<!-- /.col -->
+</section>
 </div>
 
 <script type="text/javascript" src="<?= base_url() . 'assets/js/custom/question.js?' . 'random=' . uniqid() ?> "></script>

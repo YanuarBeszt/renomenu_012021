@@ -28,11 +28,11 @@ class Question extends CI_Controller
 	{
 		$data["title"] = "Renomeet - Online Meeting";
 		$data["landingpage"] = false;
-		$data['topic'] = $this->topic->getAllData_asc();
-		$data['topicDropdown'] = $this->topic->getTopics_desc();
+		$data['category'] = $this->category->getAllDropdown();
+		$data['categoryDropdown'] = $this->category->getAllDropdown();
 		$data['tags'] = $this->tags->getAll_asc();
 		$data['content'] = 'content_question';
-		// return $data['topic'];
+		// return $data['category'];
 		$this->load->view('index', $data);
 	}
 
@@ -40,11 +40,11 @@ class Question extends CI_Controller
 	{
 		$question = $this->input->post('question');
 		$contents = $this->input->post('contents');
-		$idTopic = $this->input->post('idTopic');
+		$idcategory = $this->input->post('idCategory');
 		$tags = $this->input->post('tags');
 		// echo json_encode($_POST);
 		// return;
-		$this->question->storeDataIna($question, $contents, $idTopic, $tags);
+		$this->question->storeDataIna($question, $contents, $idcategory, $tags);
 		$res = $this->response([1, 'Success Submit Your Data.']);
 		echo json_encode($res);
 		return;
@@ -54,11 +54,11 @@ class Question extends CI_Controller
 	{
 		$question = $this->input->post('question');
 		$contents = $this->input->post('contents');
-		$idTopic = $this->input->post('idTopic');
+		$idcategory = $this->input->post('idCategory');
 		$tags = $this->input->post('tags');
 		// echo json_encode($_POST);
 		// return;
-		$this->question->storeDataEn($question, $contents, $idTopic, $tags);
+		$this->question->storeDataEn($question, $contents, $idcategory, $tags);
 		$res = $this->response([1, 'Success Submit Your Data.']);
 		echo json_encode($res);
 		return;
@@ -69,7 +69,7 @@ class Question extends CI_Controller
 		$question = $this->input->post('question');
 		$steps = $this->input->post('contents');
 		$statusQ = $this->input->post('statusQ');
-		$idTopic = $this->input->post('idTopic');
+		$idcategory = $this->input->post('idCategory');
 		$idTags = $this->input->post('tags');
 		$idQ = $this->input->post('idQ');
 
@@ -80,7 +80,7 @@ class Question extends CI_Controller
 		// 	"idTags" => $this->input->post('tags'),
 		// 	"idQ" => $this->input->post('idQ'),
 		// );
-		$this->question->updateDataIna($question, $steps, $statusQ, $idTopic, $idTags, $idQ);
+		$this->question->updateDataIna($question, $steps, $statusQ, $idcategory, $idTags, $idQ);
 		$res = $this->response([1, 'Success Update Your Data.']);
 		echo json_encode($res);
 		return;
@@ -91,7 +91,7 @@ class Question extends CI_Controller
 		$question = $this->input->post('question');
 		$steps = $this->input->post('contents');
 		$statusQ = $this->input->post('statusQ');
-		$idTopic = $this->input->post('idTopic');
+		$idcategory = $this->input->post('idcategory');
 		$idTags = $this->input->post('tags');
 		$idQ = $this->input->post('idQ');
 
@@ -102,7 +102,7 @@ class Question extends CI_Controller
 		// 	"idTags" => $this->input->post('tags'),
 		// 	"idQ" => $this->input->post('idQ'),
 		// );
-		$this->question->updateDataEn($question, $steps, $statusQ, $idTopic, $idTags, $idQ);
+		$this->question->updateDataEn($question, $steps, $statusQ, $idcategory, $idTags, $idQ);
 		$res = $this->response([1, 'Success Update Your Data.']);
 		echo json_encode($res);
 		return;
@@ -190,7 +190,7 @@ class Question extends CI_Controller
 			$data .= '<tr>';
 			$data .= '<td class="text-center">' . $no++ . '</td>';
 			$data .= '<td>' . $list[$i]->question . '</td>';
-			$data .= '<td>' . $list[$i]->namePF . ' - ' . $list[$i]->nameTopic . '</td>';
+			$data .= '<td>' . $list[$i]->namePF . '</td>';
 			if ($list[$i]->is_deleted == "n") :
 				$data .= '<td><a href="#" class="btn btn-success btn-edit disabled">Active</a></td>';
 			else :
@@ -214,7 +214,7 @@ class Question extends CI_Controller
 			$data .= '<tr>';
 			$data .= '<td class="text-center">' . $no++ . '</td>';
 			$data .= '<td>' . $list[$i]->question . '</td>';
-			$data .= '<td>' . $list[$i]->namePF . ' - ' . $list[$i]->nameTopic . '</td>';
+			$data .= '<td>' . $list[$i]->namePF . ' - ' . $list[$i]->namecategory . '</td>';
 			if ($list[$i]->is_deleted == "n") :
 				$data .= '<td><a href="#" class="btn btn-success btn-edit disabled">Active</a></td>';
 			else :
@@ -232,7 +232,7 @@ class Question extends CI_Controller
 	{
 		$id_list = $this->input->post('idQ');
 
-		$table = 'question_ina';
+		$table = 'question';
 		$this->db->where('id', $id_list);
 		$delete = $this->db->delete($table);
 

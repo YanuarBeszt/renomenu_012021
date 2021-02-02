@@ -24,11 +24,9 @@ class M_Question extends CI_Model
 
     public function getAllDataIna_asc()
     {
-        $this->db->select('question.id, question.question, topic.id as idTopic, topic.name as nameTopic, question.is_deleted, platform.name as namePF');
-        $this->db->join('topic', 'question.topic_id = topic.id');
-        $this->db->join('platform', 'platform.id = topic.platform_id');
-        $this->db->where('question.language', '1');
-        $this->db->order_by('topic.id', 'asc');
+        $this->db->select('question.id, question.question, category.id as idTopic, category.name as nameTopic, question.is_deleted, category.name as namePF');
+        $this->db->join('category', 'question.category_id = category.id');
+        $this->db->order_by('category.id', 'asc');
         return $this->db->get($this->_table)->result();
     }
 
@@ -80,14 +78,14 @@ class M_Question extends CI_Model
         return $this->db->get($this->_table)->result();
     }
 
-    function storeDataIna($question, $contents, $idTopic, $tags)
+    function storeDataIna($question, $contents, $idCategory, $tags)
     {
         $data = array(
             'question' => $question,
             'is_deleted' => 'n',
-            'language' => '1',
+            // 'language' => '1',
             'answer_desc' => $contents,
-            'topic_id' => $idTopic,
+            'category_id' => $idCategory,
             'created_by' => $this->session->userdata('user_logged')->id,
             'last_modified_by' => $this->session->userdata('user_logged')->id,
         );
@@ -131,7 +129,7 @@ class M_Question extends CI_Model
         $data  = array(
             'question' => $question,
             'is_deleted' => $statusQ,
-            'topic_id' => $idTopic,
+            'category_id' => $idTopic,
             'answer_desc' => $steps,
             'last_modified_by' => $this->session->userdata('user_logged')->id,
         );

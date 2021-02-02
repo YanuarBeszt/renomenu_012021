@@ -27,14 +27,14 @@ class Category extends CI_Controller
 	{
 		$data["title"] = "Renomeet - Online Meeting";
 		$data["landingpage"] = false;
-		$data['content'] = 'content_platform';
+		$data['content'] = 'content_category';
 
 		$this->load->view('index', $data);
 	}
 
 	public function getAllData()
 	{
-		$list = $this->platform->getAllData_asc();
+		$list = $this->category->getAllData_asc();
 
 		$data = '';
 		$no = 1;
@@ -57,37 +57,45 @@ class Category extends CI_Controller
 
 	function action_store()
 	{
-		$config['upload_path'] = realpath(APPPATH . '../assets/img/upload/');;
-		$config['allowed_types'] = 'jpg|png';
-		$config['encrypt_name'] = FALSE;
-		$nmfile = time() . "_" . $_FILES['file_image']['name'];
-		$config['file_name'] = $nmfile;
+		$namePF = $this->input->post('namePF');
 
-		$this->load->library('upload', $config);
-		if ($this->upload->do_upload("file_image")) {
-			$data = array('upload_data' => $this->upload->data());
-
-			$namePF = $this->input->post('namePF');
-			$imagePF = $data['upload_data']['file_name'];
-
-			$result = $this->platform->storeData($namePF, $imagePF, "n");
-			if ($result) {
-				$res = $this->response([1, 'Success Submit Your Data.']);
-				echo json_encode($res);
-				return;
-			}
-		} else {
-			$error = array('error' => $this->upload->display_errors());
-			echo "<div class='alert alert-danger'>'" . $error['error'] . "</div>";
+		$result = $this->category->storeData($namePF, "n");
+		if ($result) {
+			$res = $this->response([1, 'Success Submit Your Data.']);
+			echo json_encode($res);
 			return;
 		}
+		// $config['upload_path'] = realpath(APPPATH . '../assets/img/upload/');;
+		// $config['allowed_types'] = 'jpg|png';
+		// $config['encrypt_name'] = FALSE;
+		// $nmfile = time() . "_" . $_FILES['file_image']['name'];
+		// $config['file_name'] = $nmfile;
+
+		// $this->load->library('upload', $config);
+		// if ($this->upload->do_upload("file_image")) {
+		// 	$data = array('upload_data' => $this->upload->data());
+
+		// 	$namePF = $this->input->post('namePF');
+		// 	$imagePF = $data['upload_data']['file_name'];
+
+		// 	$result = $this->platform->storeData($namePF, "n");
+		// 	if ($result) {
+		// 		$res = $this->response([1, 'Success Submit Your Data.']);
+		// 		echo json_encode($res);
+		// 		return;
+		// 	}
+		// } else {
+		// 	$error = array('error' => $this->upload->display_errors());
+		// 	echo "<div class='alert alert-danger'>'" . $error['error'] . "</div>";
+		// 	return;
+		// }
 	}
 
 	public function getDataById()
 	{
 		$id = $this->input->post('idPF');
 
-		$data = $this->platform->getById($id);
+		$data = $this->category->getById($id);
 		echo json_encode($data);
 	}
 
@@ -96,46 +104,55 @@ class Category extends CI_Controller
 		// echo json_encode([$_POST, $_FILES]);
 		// return;
 		$id = $this->input->post('idPF');
-		if ($id != null) {
-			$_image = $this->platform->getById($id);
-			if (isset($_FILES['file_image'])) {
-				$config['upload_path'] = realpath(APPPATH . '../assets/img/upload/');
-				$config['allowed_types'] = 'jpg|png';
-				$config['encrypt_name'] = FALSE;
-				$nmfile = time() . "_" . $_FILES['file_image']['name'];
-				$config['file_name'] = $nmfile;
 
-				$this->load->library('upload', $config);
-				if (!$this->upload->do_upload('file_image')) {
-					$error = array('error' => $this->upload->display_errors());
-					echo "<div class='alert alert-danger'>'" . $error['error'] . "</div>";
-					return;
-				} else {
-					$_data = array('upload_data' => $this->upload->data());
-					$uriFile = realpath(APPPATH . '../assets/img/upload/');
-					$hapus = unlink($uriFile . "/" . $_image->image);
-					$data = array(
-						'name' => $this->input->post('namePF'),
-						'is_deleted' => $this->input->post('statusPF'),
-						'image' => $_data['upload_data']['file_name']
-					);
-					$query = $this->platform->updateData($data, $id);
-					$res = $this->response([1, 'Success Update Your Data.']);
-					echo json_encode($res);
-					return;
-				}
-			} else {
-				$data = array(
-					'name' => $this->input->post('namePF'),
-					'is_deleted' => $this->input->post('statusPF'),
-					'image' => $_image->image
-				);
-				$query = $this->platform->updateData($data, $id);
-				$res = $this->response([1, 'Success Update Your Data.']);
-				echo json_encode($res);
-				return;
-			}
-		}
+		$data = array(
+			'name' => $this->input->post('namePF'),
+			'is_deleted' => $this->input->post('statusPF')
+		);
+		$query = $this->category->updateData($data, $id);
+		$res = $this->response([1, 'Success Update Your Data.']);
+		echo json_encode($res);
+		return;
+		// if ($id != null) {
+		// 	$_image = $this->platform->getById($id);
+		// 	if (isset($_FILES['file_image'])) {
+		// 		$config['upload_path'] = realpath(APPPATH . '../assets/img/upload/');
+		// 		$config['allowed_types'] = 'jpg|png';
+		// 		$config['encrypt_name'] = FALSE;
+		// 		$nmfile = time() . "_" . $_FILES['file_image']['name'];
+		// 		$config['file_name'] = $nmfile;
+
+		// 		$this->load->library('upload', $config);
+		// 		if (!$this->upload->do_upload('file_image')) {
+		// 			$error = array('error' => $this->upload->display_errors());
+		// 			echo "<div class='alert alert-danger'>'" . $error['error'] . "</div>";
+		// 			return;
+		// 		} else {
+		// 			$_data = array('upload_data' => $this->upload->data());
+		// 			$uriFile = realpath(APPPATH . '../assets/img/upload/');
+		// 			$hapus = unlink($uriFile . "/" . $_image->image);
+		// 			$data = array(
+		// 				'name' => $this->input->post('namePF'),
+		// 				'is_deleted' => $this->input->post('statusPF'),
+		// 				'image' => $_data['upload_data']['file_name']
+		// 			);
+		// 			$query = $this->platform->updateData($data, $id);
+		// 			$res = $this->response([1, 'Success Update Your Data.']);
+		// 			echo json_encode($res);
+		// 			return;
+		// 		}
+		// 	} else {
+		// 		$data = array(
+		// 			'name' => $this->input->post('namePF'),
+		// 			'is_deleted' => $this->input->post('statusPF'),
+		// 			'image' => $_image->image
+		// 		);
+		// 		$query = $this->platform->updateData($data, $id);
+		// 		$res = $this->response([1, 'Success Update Your Data.']);
+		// 		echo json_encode($res);
+		// 		return;
+		// 	}
+		// }
 	}
 
 	public function action_delete()
@@ -148,7 +165,7 @@ class Category extends CI_Controller
 		];
 
 		$this->db->where('id', $id_list);
-		$delete = $this->db->update('platform', $data);
+		$delete = $this->db->update('category', $data);
 
 		if ($delete === false) {
 			$res = $this->response([0, 'Failed Change Your Data Status.']);

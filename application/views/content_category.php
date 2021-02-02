@@ -26,21 +26,21 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Form Data Platform</h3>
+              <h3 class="card-title">Form Data Category</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form" id="platformF">
+            <form role="form" id="CategoryF">
               <div class="card-body">
                 <div class="form-group">
-                  <label for="namePF">Platform name</label>
-                  <input type="text" class="form-control" id="namePF" name="namePF" placeholder="Platform Name">
+                  <label for="namePF">Category name</label>
+                  <input type="text" class="form-control" id="namePF" name="namePF" placeholder="Category Name">
                   <div class="error-namePF col-sm-10 mt-2" style="display: none;">
                     <h5 style="font-size: 16px; color: red;">Tidak Boleh Kosong</h5>
                   </div>
                 </div>
                 <div class="form-group status-form" style="display: none;">
-                  <label for="statusPF">Platform status</label>
+                  <label for="statusPF">Category status</label>
                   <select class="form-control select statusPF" style="width: 100%;" id="statusPF" name="statusPF">
                     <option value="n">Active</option>
                     <option value="y">Non-Active</option>
@@ -49,7 +49,7 @@
                     <h5 style="font-size: 16px; color: red;">Tidak Boleh Kosong</h5>
                   </div>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="imagePF">Upload Image</label>
                   <div class="input-group">
                     <div class="custom-file">
@@ -63,7 +63,7 @@
                 </div>
                 <div class="image-edit" style="display: none;">
                   <img id="image_position" src="" alt="" style="max-width: 50px; height:auto;">
-                </div>
+                </div> -->
               </div>
               <!-- /.card-body -->
 
@@ -88,16 +88,16 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Data Platforms</h3>
+              <h3 class="card-title">Data Categorys</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
               <div class="table-responsive text-nowrap">
-                <table id="platformTb" class="table table-bordered table-striped">
+                <table id="CategoryTb" class="table table-bordered table-striped">
                   <thead>
                     <tr>
                       <th>No.</th>
-                      <th>Platform name</th>
+                      <th>Category name</th>
                       <th>Status</th>
                       <th>#</th>
                     </tr>
@@ -118,7 +118,7 @@
     </div>
     <!-- /.col -->
   </section>
-  <script type="text/javascript" src="<?= base_url() . 'assets/js/custom/platform.js?' . 'random=' . uniqid() ?> "></script>
+  <script type="text/javascript" src="<?= base_url() . 'assets/js/custom/category.js?' . 'random=' . uniqid() ?> "></script>
 
   <script>
     $(window).on("load", function() {

@@ -72,7 +72,7 @@ $(document).ready(function () {
 		question: 'textarea[name="question"]',
 		contents: 'textarea[name="contents"]',
 		statusQ: 'select[name="statusQ"]',
-		idTopic: 'select[name="idTopic"]',
+		idCategory: 'select[name="idCategory"]',
 		idQ: 'input[name="hiddenVal"]',
 		tags: 'select[name="tags"]',
 	};
@@ -424,13 +424,15 @@ $(document).ready(function () {
 			return;
 		}
 		$("#overlay").fadeIn(100);
+		console.log($(element.idCategory).val());
+		// return;
 		$.ajax({
 			url: `${BASE_URL}Question/action_store`,
 			type: "post",
 			data: {
 				question: $(element.question).val(),
 				contents: $(element.contents).val(),
-				idTopic: $(element.idTopic).val(),
+				idCategory: $(element.idCategory).val(),
 				tags: $(element.tags).val(),
 			},
 			dataType: "json",
@@ -523,7 +525,7 @@ $(document).ready(function () {
 		$(".status-form").show();
 
 		$('select[name="statusQ"]').val(data.is_deleted).trigger("change");
-		$('select[name="idTopic"]').val(data.topic_id).trigger("change");
+		$('select[name="idCategory"]').val(data.category_id).trigger("change");
 		$('textarea[name="question"]').val(data.question);
 		$("#summernote").summernote("code", data.answer_desc);
 		$('input[name="hiddenVal"]').val(data.id);
@@ -597,7 +599,7 @@ $(document).ready(function () {
 			data: {
 				question: $(element.question).val(),
 				contents: $(element.contents).val(),
-				idTopic: $(element.idTopic).val(),
+				idCategory: $(element.idCategory).val(),
 				statusQ: $(element.statusQ).val(),
 				tags: $(element.tags).val(),
 				idQ: $(element.idQ).val(),

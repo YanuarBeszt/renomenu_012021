@@ -1,19 +1,19 @@
-//get all data platform
+//get all data Category
 const get_data_all = () =>
 	new Promise((resolve, reject) => {
 		$.ajax({
-			url: `${BASE_URL}Platform/getAllData`,
+			url: `${BASE_URL}Category/getAllData`,
 			type: "get",
 			dataType: "json",
 			success: (res) => resolve(res),
 		});
 	});
 
-//get data platform by id platform
+//get data Category by id Category
 const getById = (id) =>
 	new Promise((resolve, reject) => {
 		$.ajax({
-			url: `${BASE_URL}Platform/getDataById`,
+			url: `${BASE_URL}Category/getDataById`,
 			type: "POST",
 			data: id,
 			dataType: "json",
@@ -44,20 +44,20 @@ $(document).ready(function () {
 	const element = {
 		namePF: 'input[name="namePF"]',
 		statusPF: 'select[name="statusPF"]',
-		file_name: 'input[name="file_name"]',
-		imagePF: 'input[name="imagePF"]',
+		// file_name: 'input[name="file_name"]',
+		// imagePF: 'input[name="imagePF"]',
 		hiddenVal: 'input[name="hiddenVal"]',
-		file_name: "#file_name",
+		// file_name: "#file_name",
 	};
 
 	//empty field input
 	const emptyField = function () {
 		$(element.namePF).val("");
 		$(element.statusPF).val("");
-		$(element.file_name).val("");
-		$(element.imagePF).val("");
+		// $(element.file_name).val("");
+		// $(element.imagePF).val("");
 		$(element.hiddenVal).val("");
-		$(element.file_name).text("Choose file");
+		// $(element.file_name).text("Choose file");
 	};
 
 	//get uploaded file name
@@ -70,12 +70,12 @@ $(document).ready(function () {
 		$("#file_name").text(fileName.match(regex)[1]);
 	});
 
-	//get all data platform every document is ready
+	//get all data Category every document is ready
 	const get_data = async () => {
 		const data = await get_data_all();
-		$("#platformTb").DataTable().clear().destroy();
+		$("#CategoryTb").DataTable().clear().destroy();
 		$(".bodyPf").html(data[0]);
-		$("#platformTb").DataTable({
+		$("#CategoryTb").DataTable({
 			processing: true,
 			lengthMenu: [
 				[5, 10, 20],
@@ -87,35 +87,33 @@ $(document).ready(function () {
 	get_data();
 
 	//submit insert data
-	$("form#platformF").on("submit", function (e) {
+	$("form#CategoryF").on("submit", function (e) {
 		e.preventDefault();
 		$("#overlay").fadeIn(100);
-		var form_data = new FormData();
-		var fileInfo = $("input[name='imagePF']")[0].files[0];
+		// var form_data = new FormData();
+		// var fileInfo = $("input[name='imagePF']")[0].files[0];
 		var namePF = $('input[name="namePF"]').val();
 
-		if (fileInfo === "") {
-			$("#overlay").fadeOut(400);
-			swal_error("File image is empty!");
-			return;
-		}
+		// if (fileInfo === "") {
+		// 	$("#overlay").fadeOut(400);
+		// 	swal_error("File image is empty!");
+		// 	return;
+		// }
 		if (namePF === "") {
 			$("#overlay").fadeOut(400);
 			swal_error("File name is empty!");
 			return;
 		}
-
-		form_data.append("file_image", fileInfo);
-		form_data.append("namePF", namePF);
+		// console.log($(element.namePF).val());
+		// return;
+		// form_data.append("file_image", fileInfo);
+		// form_data.append("namePF", namePF);
 		// console.log(Object.fromEntries(form_data));
 		// return;
 		$.ajax({
-			url: `${BASE_URL}Platform/action_store`,
-			type: "post",
-			cache: false,
-			contentType: false,
-			processData: false,
-			data: form_data,
+			url: `${BASE_URL}Category/action_store`,
+			type: "POST",
+			data: { namePF: $(element.namePF).val() },
 			dataType: "json",
 			success: function (res) {
 				if (res.code === 1) {
@@ -162,41 +160,46 @@ $(document).ready(function () {
 		$("#image_position").attr("src", "assets/img/upload/" + data.image);
 	};
 
-	//update data platform
+	//update data Category
 	$("#update_btn").on("click", function (e) {
 		e.preventDefault();
 		$("#overlay").fadeIn(100);
-		var form_data = new FormData();
-		var fileInfo = $("input[name='imagePF']")[0].files[0];
-		var namePF = $('input[name="namePF"]').val();
-		var statusPF = $('select[name="statusPF"]').val();
-		var idPF = $('input[name="hiddenVal"]').val();
+		// var form_data = new FormData();
+		// var fileInfo = $("input[name='imagePF']")[0].files[0];
+		// var namePF = $('input[name="namePF"]').val();
+		// var statusPF = $('select[name="statusPF"]').val();
+		// var idPF = $('input[name="hiddenVal"]').val();
 
-		if (fileInfo === "") {
-			$("#overlay").fadeOut(400);
-			swal_error("File image is empty!");
-			return;
-		} else if (namePF === "") {
+		// if (fileInfo === "") {
+		// 	$("#overlay").fadeOut(400);
+		// 	swal_error("File image is empty!");
+		// 	return;
+		// } else
+		if (namePF === "") {
 			$("#overlay").fadeOut(400);
 			swal_error("File name is empty!");
 			return;
 		}
 
-		form_data.append("file_image", fileInfo);
-		form_data.append("namePF", namePF);
-		form_data.append("statusPF", statusPF);
-		form_data.append("idPF", idPF);
+		// form_data.append("file_image", fileInfo);
+		// form_data.append("namePF", namePF);
+		// form_data.append("statusPF", statusPF);
+		// form_data.append("idPF", idPF);
 		$.ajax({
-			url: `${BASE_URL}Platform/action_update`,
-			type: "post",
-			cache: false,
-			contentType: false,
-			processData: false,
-			data: form_data,
+			url: `${BASE_URL}Category/action_update`,
+			type: "POST",
+			// cache: false,
+			// contentType: false,
+			// processData: false,
+			data: {
+				namePF: $(element.namePF).val(),
+				statusPF: $('select[name="statusPF"]').val(),
+				idPF: $('input[name="hiddenVal"]').val(),
+			},
 			dataType: "json",
 			success: function (res) {
 				// setTimeout(function () {
-				// 	window.location.replace(`${BASE_URL}Platform`);
+				// 	window.location.replace(`${BASE_URL}Category`);
 				// }, 2000);
 				if (res.code === 1) {
 					$("#overlay").fadeOut(400);
@@ -218,7 +221,7 @@ $(document).ready(function () {
 	$(document).on("click", ".btn_delete", function (e) {
 		e.preventDefault();
 		$.ajax({
-			url: `${BASE_URL}Platform/action_delete`,
+			url: `${BASE_URL}Category/action_delete`,
 			type: "POST",
 			data: { idPF: this.id },
 			dataType: "json",

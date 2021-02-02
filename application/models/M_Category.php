@@ -22,11 +22,11 @@ class M_Category extends CI_Model
         return $this->db->get($this->_table)->result();
     }
 
-    public function storeData($namePF, $imagePF, $statusPF)
+    public function storeData($namePF, $statusPF)
     {
         $data = array(
             'name' => $namePF,
-            'image' => $imagePF,
+            // 'image' => $imagePF,
             'is_deleted' => $statusPF,
             'created_by' => $this->session->userdata('user_logged')->id,
             'last_modified_by' => $this->session->userdata('user_logged')->id,
