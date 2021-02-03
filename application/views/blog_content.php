@@ -97,6 +97,8 @@
             </div>
         </aside>
         <!--Off Canvas Navigation End-->
+
+        <!--Off Canvas Navigation End-->
         <div class="search-area">
             <form id="search-form">
                 <div class="search">
@@ -108,71 +110,30 @@
         </div>
 
         <div class="container">
-            <div class="title animated fadeInDown" id="title">
-                Pusat Informasi Renomenu
+            <div class="bread-crumb">
+                <span><a href=""><i class="fa fa-home"></i></a><i class="fas fa-chevron-right"></i></span><span><a href="">Blog</a><i class="fas fa-chevron-right"></i></span><span id=""><a href="">‘Order Sekaligus’ - Order Food from Multiple Restaurants in One Location</a></span>
             </div>
-            <div class="category">
-                <a href="">
+        </div>
+
+        <div class="container">
+            <div class="inner-blog">
+                <div class="title animated fadeInDown" style="padding-top: 10px !important;">
+                    ‘Order Sekaligus’ - Order Food from Multiple Restaurants in One Location
+                </div>
+                <div class="category">
                     <div class="cat-item">
                         <span>Delivery</span>
                     </div>
-                </a>
-                <a href="">
-                    <div class="cat-item">
-                        <span>Promo</span>
-                    </div>
-                </a>
+                    <i class="fa fa-circle" style="font-size: 6px;"></i>
+                    <span style="font-size: 11pt; padding-left:10px;">20 Januari 2020</span>
+                </div>
+                <img style="width: 100%; height:400px; object-fit:cover; padding-bottom:40px;" src="<?= base_url() ?>assets/landing-page/image/delivery.jpg" alt="">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in est sit amet eros auctor tincidunt in ut libero. Etiam accumsan vel lectus non ullamcorper. Proin neque ex, accumsan nec malesuada a, auctor eu nunc. Pellentesque auctor dictum elit in porttitor. Morbi id nibh malesuada, laoreet dolor a, facilisis nisl. Quisque ligula orci, pharetra eu aliquam et, finibus vitae purus. Integer nec tristique turpis. Cras egestas eleifend odio in blandit.</p>
+                <p>Curabitur iaculis velit hendrerit lectus cursus commodo. Ut efficitur nisl velit, sed posuere lacus suscipit sed. Nulla et nisi at lectus lobortis condimentum in ac ipsum. Curabitur non laoreet libero, quis cursus nisi. Sed eget pharetra sem. Nulla efficitur neque rhoncus luctus fringilla. Cras et luctus dolor. Proin felis lacus, efficitur vel lacus vitae, dictum tempor elit. Etiam tincidunt magna quis lacus pretium, eu fermentum eros scelerisque. Aenean ut felis sodales, lacinia purus vestibulum, convallis orci. Aenean maximus, neque aliquet dignissim finibus, orci mi hendrerit diam, sit amet aliquam massa erat vitae risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla quis diam odio. Aenean enim nisl, mollis nec purus placerat, hendrerit vulputate erat. Etiam lorem nibh, ornare a eros ac, molestie vehicula turpis.</p>
+                <p> Curabitur iaculis velit hendrerit lectus cursus commodo. Ut efficitur nisl velit, sed posuere lacus suscipit sed. Nulla et nisi at lectus lobortis condimentum in ac ipsum. Curabitur non laoreet libero, quis cursus nisi. Sed eget pharetra sem. Nulla efficitur neque rhoncus luctus fringilla. Cras et luctus dolor. Proin felis lacus, efficitur vel lacus vitae, dictum tempor elit. Etiam tincidunt magna quis lacus pretium, eu fermentum eros scelerisque. Aenean ut felis sodales, lacinia purus vestibulum, convallis orci. Aenean maximus, neque aliquet dignissim finibus, orci mi hendrerit diam, sit amet aliquam massa erat vitae risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla quis diam odio. Aenean enim nisl, mollis nec purus placerat, hendrerit vulputate erat. Etiam lorem nibh, ornare a eros ac, molestie vehicula turpis.</p>
+                <p>Duis eu placerat ante. Etiam blandit turpis vel urna consequat placerat. Proin vitae tempor augue, non gravida augue. Praesent nunc erat, gravida eu risus in, hendrerit interdum lacus. Maecenas et nisl magna. Quisque tristique, massa ac vehicula mattis, nibh lorem porta eros, id semper arcu elit quis metus. Nullam in augue sem. Nullam eu commodo enim. Aenean malesuada dapibus mauris. Nullam tincidunt turpis et lacus gravida pharetra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi molestie, neque quis bibendum ultricies, felis magna dapibus libero, sit amet rutrum ante lectus vitae urna. Mauris ac sagittis eros, ac ornare lorem. Aliquam fringilla venenatis ligula, vel accumsan nulla malesuada sit amet.</p>
+                </p>
             </div>
-            <ul class="blog-post columns-3">
-                <li>
-                    <img src="https://ununsplash.imgix.net/photo-1414788020357-3690cfdab669?q=75&fm=jpg&s=da7d3842604f06bf5c6ded7f4fe7aeed" />
-                    <h3>‘Order Sekaligus’ - Order Food from Multiple Restaurants in One Location</h3>
-                    <div class="info">
-                        <div class="athor-blog">
-                            <span>Delivery</span>
-                        </div>
-                        <div class="date-blog">
-                            <span>20 Januari 2021</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <img src="https://unsplash.imgix.net/photo-1415889678233-eb900aeee9e1?q=75&fm=jpg&s=a41f4d6b1848cd673323fa4ee17da470" />
-                    <h3>Blog Post Two</h3>
-                    <div class="info">
-                        <div class="athor-blog">
-                            <span>Delivery</span>
-                        </div>
-                        <div class="date-blog">
-                            <span>20 Januari 2021</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <img src="https://unsplash.imgix.net/photo-1414542563971-94513793d046?q=75&fm=jpg&s=8fbfdbbec683a6b4634e558f7db67ee7" />
-                    <h3>Blog Post Three</h3>
-                    <div class="info">
-                        <div class="athor-blog">
-                            <span>Delivery</span>
-                        </div>
-                        <div class="date-blog">
-                            <span>20 Januari 2021</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <img src="https://ununsplash.imgix.net/photo-1416339134316-0e91dc9ded92?q=75&fm=jpg&s=883a422e10fc4149893984019f63c818" />
-                    <h3>Blog Post Four</h3>
-                    <div class="info">
-                        <div class="athor-blog">
-                            <span>Delivery</span>
-                        </div>
-                        <div class="date-blog">
-                            <span>20 Januari 2021</span>
-                        </div>
-                    </div>
-                </li>
-            </ul>
         </div>
         <!-- Footer Section -->
 
