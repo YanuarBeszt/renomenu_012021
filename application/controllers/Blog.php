@@ -70,6 +70,11 @@ class Blog extends CI_Controller
         $this->load->view('index', $data);
     }
 
+    public function landingPage()
+    {
+        $this->load->view('blog');
+    }
+
     public function create()
     {
         if (!$this->session->userdata('user_logged')) {
