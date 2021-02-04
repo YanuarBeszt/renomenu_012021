@@ -39,10 +39,10 @@
 					<div class=" col-6 col-sm-1 col-lg-6 col-xl-8   position-static order-lg-2">
 						<div class="main-navigation ">
 							<ul class="main-menu">
-								<li class="menu-item"><a href="">Beranda</a></li>
-								<li class="menu-item"><a href="">Pusat Bantuan</a></li>
-								<li class="menu-item"><a href="">Blog</a></li>
-								<li class="menu-item"><a href="">Contact</a></li>
+								<li class="menu-item"><a href="<?= base_url() ?>">Beranda</a></li>
+								<li class="menu-item"><a href="<?= base_url() ?>Bantuan/kategori">Pusat Bantuan</a></li>
+								<li class="menu-item"><a href="<?= base_url() ?>Blog/">Blog</a></li>
+								<li class="menu-item"><a href="<?= base_url() ?>Contact">Contact</a></li>
 							</ul>
 						</div>
 					</div>
@@ -83,10 +83,10 @@
 					<!-- mobile menu navigation start -->
 					<nav class="off-canvas-nav">
 						<ul class="mobile-menu">
-							<li class="menu-item"><a href="">Beranda</a></li>
-							<li class="menu-item"><a href="">Pusat Bantuan</a></li>
-							<li class="menu-item"><a href="">Blog</a></li>
-							<li class="menu-item"><a href="">Contact</a></li>
+							<li class="menu-item"><a href="<?= base_url() ?>">Beranda</a></li>
+							<li class="menu-item"><a href="<?= base_url() ?>Bantuan/kategori">Pusat Bantuan</a></li>
+							<li class="menu-item"><a href="<?= base_url() ?>Blog/">Blog</a></li>
+							<li class="menu-item"><a href="<?= base_url() ?>Contact">Contact</a></li>
 						</ul>
 					</nav>
 					<!-- mobile menu navigation end -->
@@ -155,15 +155,11 @@
 						<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 					</ol>
 					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<img class="d-block w-100" src="<?= base_url() ?>assets/landing-page/image/banner-event.png" alt="First slide">
-						</div>
-						<div class="carousel-item">
-							<img class="d-block w-100" src="<?= base_url() ?>assets/landing-page/image/banner-event.png" alt="Second slide">
-						</div>
-						<div class="carousel-item">
-							<img class="d-block w-100" src="<?= base_url() ?>assets/landing-page/image/banner-event.png" alt="Third slide">
-						</div>
+						<?php foreach ($banner as $key) : ?>
+							<div class="carousel-item active">
+								<img class="d-block w-100" src="<?= base_url() ?>assets/images/upload/banner/<?= $key->image; ?>" alt="<?= $key->name; ?>">
+							</div>
+						<?php endforeach; ?>
 					</div>
 					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -177,22 +173,26 @@
 				<div class="feature">
 					<div class="element-feature">
 						<img class="menu-image" src="<?= base_url() ?>assets/landing-page/image/delivery button.png" alt="delivery button">
+						<h5 style="display: none;">Delivery</h5>
 					</div>
 					<div class="element-feature">
 						<img class="menu-image" src="<?= base_url() ?>assets/landing-page/image/dine in button.png" alt="dine in button">
+						<h5 style="display: none;">Dine In</h5>
 					</div>
 					<div class="element-feature">
 						<img class="menu-image" src="<?= base_url() ?>assets/landing-page/image/takeAway button.png" alt="takeAway button">
+						<h5 style="display: none;">Take Away</h5>
 					</div>
 					<div class="element-feature">
 						<img class="menu-image" src="<?= base_url() ?>assets/landing-page/image/qr button.png" alt="qr button">
+						<h5 style="display: none;">QR Code Menu</h5>
 					</div>
 				</div>
 			</div>
 		</section>
 
 		<!-- Content Section 01 -->
-		<section class="content-section section-padding-top">
+		<section class="content-section section-padding-top" style="padding-top: 40px; padding-bottom: 40px;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-9 col-lg-8 col-xl-7">
@@ -216,63 +216,24 @@
 						</div>
 					</div>
 					<div class="col-md-3 col-lg-4 col-xl-5">
-						<a href="">
-							<div class="blog">
-								<img class="blog_image" src="<?= base_url() ?>assets/landing-page/image/restauran.jpeg" alt="restauran">
-								<div class="blog_text">
-									<h6>10 restauran mewah di jakarta</h6>
-									<div class="athor-blog">
-										<span>admin</span>
-									</div>
-									<div class="date-blog">
-										<span>20 Januari 2021</span>
-									</div>
-								</div>
-							</div>
-						</a>
-						<a href="">
-							<div class="blog">
-								<img class="blog_image" src="<?= base_url() ?>assets/landing-page/image/restauran.jpeg" alt="restauran">
-								<div class="blog_text">
-									<h6>10 restauran mewah di jakarta</h6>
-									<div class="athor-blog">
-										<span>admin</span>
-									</div>
-									<div class="date-blog">
-										<span>20 Januari 2021</span>
+						<?php foreach ($blog as $key) : ?>
+							<a href="">
+								<div class="blog">
+									<img class="blog_image" src="<?= base_url() ?>assets/images/upload/blog/header_image/<?= $key->header_image; ?>" alt="<?= $key->header_image; ?>">
+									<div class="blog_text">
+										<h6><?= $key->title; ?></h6>
+										<div class="athor-blog">
+											<span>admin</span>
+										</div>
+										<div class="date-blog">
+											<span><?= date("d-m-Y", strtotime($key->created_date)); ?></span>
+										</div>
 									</div>
 								</div>
-							</div>
-						</a>
-						<a href="">
-							<div class="blog">
-								<img class="blog_image" src="<?= base_url() ?>assets/landing-page/image/restauran.jpeg" alt="restauran">
-								<div class="blog_text">
-									<h6>10 restauran mewah di jakarta</h6>
-									<div class="athor-blog">
-										<span>admin</span>
-									</div>
-									<div class="date-blog">
-										<span>20 Januari 2021</span>
-									</div>
-								</div>
-							</div>
-						</a>
-						<a href="">
-							<div class="blog">
-								<img class="blog_image" src="<?= base_url() ?>assets/landing-page/image/restauran.jpeg" alt="restauran">
-								<div class="blog_text">
-									<h6>10 restauran mewah di jakarta</h6>
-									<div class="athor-blog">
-										<span>admin</span>
-									</div>
-									<div class="date-blog">
-										<span>20 Januari 2021</span>
-									</div>
-								</div>
-							</div>
-						</a>
-						<a href="">
+							</a>
+						<?php endforeach; ?>
+
+						<a href="<?= base_url() ?>Blog/">
 							<div class="blog" style="display : flex; align-items : center; justify-content: center;">
 								<p>More</p>
 							</div>

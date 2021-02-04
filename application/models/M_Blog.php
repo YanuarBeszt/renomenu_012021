@@ -15,6 +15,48 @@ class M_Blog extends CI_Model
         return $query->result();
     }
 
+    public function getListBlog()
+    {
+        // return $this->db->get($this->_table)->result();
+        $this->db->select('blog.id, blog.title, blog.header_image, blog.content, blog.created_by as date, blog_keyword.blog_id, keyword.name');
+        $this->db->from("blog_keyword");
+        $this->db->join($this->_table, 'blog.id = blog_keyword.blog_id');
+        $this->db->join("keyword", 'keyword.id = blog_keyword.keyword_id');
+        $this->db->group_by("blog_keyword.blog_id");
+        $this->db->where('blog.is_deleted = ', 'n');
+
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function getBlogContent($id)
+    {
+        // return $this->db->get($this->_table)->result();
+        $this->db->select('blog.id, blog.title, blog.header_image, blog.content, blog.created_by as date, blog_keyword.blog_id, keyword.name');
+        $this->db->from("blog_keyword");
+        $this->db->join($this->_table, 'blog.id = blog_keyword.blog_id');
+        $this->db->join("keyword", 'keyword.id = blog_keyword.keyword_id');
+        $this->db->group_by("blog_keyword.blog_id");
+        // $this->db->where('blog.is_deleted = ', 'n');
+        $this->db->where('blog.id = ', $id);
+
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function getHomeBlog()
+    {
+        // return $this->db->get($this->_table)->result();
+        $this->db->select('*');
+        $this->db->from($this->_table);
+        $this->db->where('is_deleted = ', 'n');
+        $this->db->order_by('created_date', 'ASC');
+        $this->db->limit(4);
+
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function storeBlogData($header_image, $keyword)
     {
         $data = [

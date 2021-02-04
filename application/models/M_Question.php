@@ -30,6 +30,14 @@ class M_Question extends CI_Model
         return $this->db->get($this->_table)->result();
     }
 
+    public function getDataByCategory($id)
+    {
+        $this->db->select('question.id, question.question, category.id as idTopic, category.name as nameTopic, question.is_deleted, category.name as namePF');
+        $this->db->join('category', 'question.category_id = category.id');
+        $this->db->where('question.category_id =', $id);
+        return $this->db->get($this->_table)->result();
+    }
+
     public function getAllDataEn_asc()
     {
         $this->db->select('question.id, question.question, topic.id as idTopic, topic.name as nameTopic, question.is_deleted, platform.name as namePF');
@@ -66,7 +74,7 @@ class M_Question extends CI_Model
     {
         $this->db->select('*');
         $this->db->where('id', $id);
-        $this->db->where('question.language', '1');
+        // $this->db->where('question.language', '1');
         return $this->db->get($this->_table)->result();
     }
 

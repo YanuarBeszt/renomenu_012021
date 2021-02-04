@@ -11,6 +11,8 @@ class Blog extends CI_Controller
         $this->load->model('M_Blog');
         $this->load->model('M_Tags');
         $this->load->library('form_validation');
+        $this->load->model("M_Blog", "blog");
+        $this->load->model("M_Category", "category");
     }
 
     public function index()
@@ -72,12 +74,17 @@ class Blog extends CI_Controller
 
     public function landingPage()
     {
-        $this->load->view('blog');
+        $data["category"] = $this->category->allKeyword();
+        $data["blog"] = $this->blog->getListBlog();
+        $this->load->view('blog', $data);
     }
 
-    public function content()
+    public function content($id)
     {
-        $this->load->view('blog_content');
+        $data["category"] = $this->category->allKeyword();
+        $data["blog"] = $this->blog->getBlogContent($id);
+        $data["blognew"] = $this->blog->getHomeBlog();
+        $this->load->view('blog_content', $data);
     }
 
     public function create()

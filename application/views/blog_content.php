@@ -41,10 +41,10 @@
                     <div class=" col-6 col-sm-1 col-lg-6 col-xl-8   position-static order-lg-2">
                         <div class="main-navigation ">
                             <ul class="main-menu">
-                                <li class="menu-item"><a href="">Beranda</a></li>
-                                <li class="menu-item"><a href="">Pusat Bantuan</a></li>
-                                <li class="menu-item"><a href="">Blog</a></li>
-                                <li class="menu-item"><a href="">Contact</a></li>
+                                <li class="menu-item"><a href="<?= base_url() ?>">Beranda</a></li>
+                                <li class="menu-item"><a href="<?= base_url() ?>Bantuan/kategori">Pusat Bantuan</a></li>
+                                <li class="menu-item"><a href="<?= base_url() ?>Blog/">Blog</a></li>
+                                <li class="menu-item"><a href="<?= base_url() ?>Contact">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -85,10 +85,10 @@
                     <!-- mobile menu navigation start -->
                     <nav class="off-canvas-nav">
                         <ul class="mobile-menu">
-                            <li class="menu-item"><a href="">Beranda</a></li>
-                            <li class="menu-item"><a href="">Pusat Bantuan</a></li>
-                            <li class="menu-item"><a href="">Blog</a></li>
-                            <li class="menu-item"><a href="">Contact</a></li>
+                            <li class="menu-item"><a href="<?= base_url() ?>">Beranda</a></li>
+                            <li class="menu-item"><a href="<?= base_url() ?>Bantuan/kategori">Pusat Bantuan</a></li>
+                            <li class="menu-item"><a href="<?= base_url() ?>Blog/">Blog</a></li>
+                            <li class="menu-item"><a href="<?= base_url() ?>Contact">Contact</a></li>
                         </ul>
                     </nav>
                     <!-- mobile menu navigation end -->
@@ -111,28 +111,24 @@
 
         <div class="container">
             <div class="bread-crumb">
-                <span><a href=""><i class="fa fa-home"></i></a><i class="fas fa-chevron-right"></i></span><span><a href="">Blog</a><i class="fas fa-chevron-right"></i></span><span id=""><a href="">‘Order Sekaligus’ - Order Food from Multiple Restaurants in One Location</a></span>
+                <span><a href="<?= base_url() ?>"><i class="fa fa-home"></i></a><i class="fas fa-chevron-right"></i></span><span><a href="<?= base_url() ?>Blog/">Blog</a><i class="fas fa-chevron-right"></i></span><span id=""><a href="<?= base_url() ?>Blog/artikel/<?= $blog[0]["id"]; ?>"><?= $blog[0]["title"]; ?></a></span>
             </div>
         </div>
 
         <div class="container">
             <div class="inner-blog">
                 <div class="blog-title animated fadeInDown" style="padding-top: 10px !important;">
-                    ‘Order Sekaligus’ - Order Food from Multiple Restaurants in One Location
+                    <?= $blog[0]["title"]; ?>
                 </div>
                 <div class="category">
                     <div class="cat-item">
-                        <span>Delivery</span>
+                        <span><?= $blog[0]["name"]; ?></span>
                     </div>
                     <i class="fa fa-circle" style="font-size: 6px;"></i>
-                    <span style="font-size: 11pt; padding-left:10px;">20 Januari 2020</span>
+                    <span style="font-size: 11pt; padding-left:10px;"><?= date("d-m-Y", strtotime($blog[0]["date"])); ?></span>
                 </div>
-                <img style="width: 100%; height:400px; object-fit:cover; padding-bottom:40px;" src="<?= base_url() ?>assets/landing-page/image/delivery.jpg" alt="">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in est sit amet eros auctor tincidunt in ut libero. Etiam accumsan vel lectus non ullamcorper. Proin neque ex, accumsan nec malesuada a, auctor eu nunc. Pellentesque auctor dictum elit in porttitor. Morbi id nibh malesuada, laoreet dolor a, facilisis nisl. Quisque ligula orci, pharetra eu aliquam et, finibus vitae purus. Integer nec tristique turpis. Cras egestas eleifend odio in blandit.</p>
-                <p>Curabitur iaculis velit hendrerit lectus cursus commodo. Ut efficitur nisl velit, sed posuere lacus suscipit sed. Nulla et nisi at lectus lobortis condimentum in ac ipsum. Curabitur non laoreet libero, quis cursus nisi. Sed eget pharetra sem. Nulla efficitur neque rhoncus luctus fringilla. Cras et luctus dolor. Proin felis lacus, efficitur vel lacus vitae, dictum tempor elit. Etiam tincidunt magna quis lacus pretium, eu fermentum eros scelerisque. Aenean ut felis sodales, lacinia purus vestibulum, convallis orci. Aenean maximus, neque aliquet dignissim finibus, orci mi hendrerit diam, sit amet aliquam massa erat vitae risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla quis diam odio. Aenean enim nisl, mollis nec purus placerat, hendrerit vulputate erat. Etiam lorem nibh, ornare a eros ac, molestie vehicula turpis.</p>
-                <p> Curabitur iaculis velit hendrerit lectus cursus commodo. Ut efficitur nisl velit, sed posuere lacus suscipit sed. Nulla et nisi at lectus lobortis condimentum in ac ipsum. Curabitur non laoreet libero, quis cursus nisi. Sed eget pharetra sem. Nulla efficitur neque rhoncus luctus fringilla. Cras et luctus dolor. Proin felis lacus, efficitur vel lacus vitae, dictum tempor elit. Etiam tincidunt magna quis lacus pretium, eu fermentum eros scelerisque. Aenean ut felis sodales, lacinia purus vestibulum, convallis orci. Aenean maximus, neque aliquet dignissim finibus, orci mi hendrerit diam, sit amet aliquam massa erat vitae risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla quis diam odio. Aenean enim nisl, mollis nec purus placerat, hendrerit vulputate erat. Etiam lorem nibh, ornare a eros ac, molestie vehicula turpis.</p>
-                <p>Duis eu placerat ante. Etiam blandit turpis vel urna consequat placerat. Proin vitae tempor augue, non gravida augue. Praesent nunc erat, gravida eu risus in, hendrerit interdum lacus. Maecenas et nisl magna. Quisque tristique, massa ac vehicula mattis, nibh lorem porta eros, id semper arcu elit quis metus. Nullam in augue sem. Nullam eu commodo enim. Aenean malesuada dapibus mauris. Nullam tincidunt turpis et lacus gravida pharetra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi molestie, neque quis bibendum ultricies, felis magna dapibus libero, sit amet rutrum ante lectus vitae urna. Mauris ac sagittis eros, ac ornare lorem. Aliquam fringilla venenatis ligula, vel accumsan nulla malesuada sit amet.</p>
-                </p>
+                <img style="width: 100%; height:400px; object-fit:cover; padding-bottom:40px;" src="<?= base_url() ?>assets/images/upload/blog/header_image/<?= $blog[0]["header_image"]; ?>" alt="<?= $blog[0]["header_image"]; ?>">
+                <?= $blog[0]["content"]; ?>
             </div>
         </div>
         <div class="container">
@@ -140,70 +136,24 @@
                 Artikel Terbaru Kami
             </div>
             <div class="row">
-                <div class="col-sm-12 col-md-6 col-xl-6">
-                    <a href="">
-                        <div class="new-blog">
-                            <img class="blog_image" src="<?= base_url() ?>assets/landing-page/image/restauran.jpeg" alt="restauran">
-                            <div class="blog_text">
-                                <h6>10 restauran mewah di jakarta</h6>
-                                <div class="athor-blog">
-                                    <span>admin</span>
-                                </div>
-                                <div class="date-blog">
-                                    <span>20 Januari 2021</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-12 col-md-6 col-xl-6">
-                    <a href="">
-                        <div class="new-blog">
-                            <img class="blog_image" src="<?= base_url() ?>assets/landing-page/image/restauran.jpeg" alt="restauran">
-                            <div class="blog_text">
-                                <h6>10 restauran mewah di jakarta</h6>
-                                <div class="athor-blog">
-                                    <span>admin</span>
-                                </div>
-                                <div class="date-blog">
-                                    <span>20 Januari 2021</span>
+                <?php foreach ($blognew as $key) : ?>
+                    <div class="col-sm-12 col-md-6 col-xl-6">
+                        <a href="">
+                            <div class="new-blog">
+                                <img class="blog_image" src="<?= base_url() ?>assets/images/upload/blog/header_image/<?= $key->header_image; ?>" alt="<?= $key->header_image; ?>">
+                                <div class="blog_text">
+                                    <h6><?= $key->title; ?></h6>
+                                    <div class="athor-blog">
+                                        <span>admin</span>
+                                    </div>
+                                    <div class="date-blog">
+                                        <span><?= date("d-m-Y", strtotime($key->created_date)); ?></span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-12 col-md-6 col-xl-6">
-                    <a href="">
-                        <div class="new-blog">
-                            <img class="blog_image" src="<?= base_url() ?>assets/landing-page/image/restauran.jpeg" alt="restauran">
-                            <div class="blog_text">
-                                <h6>10 restauran mewah di jakarta</h6>
-                                <div class="athor-blog">
-                                    <span>admin</span>
-                                </div>
-                                <div class="date-blog">
-                                    <span>20 Januari 2021</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-12 col-md-6 col-xl-6">
-                    <a href="">
-                        <div class="new-blog">
-                            <img class="blog_image" src="<?= base_url() ?>assets/landing-page/image/restauran.jpeg" alt="restauran">
-                            <div class="blog_text">
-                                <h6>10 restauran mewah di jakarta</h6>
-                                <div class="athor-blog">
-                                    <span>admin</span>
-                                </div>
-                                <div class="date-blog">
-                                    <span>20 Januari 2021</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
         <!-- Footer Section -->
@@ -230,12 +180,12 @@
                     <div class="col-lg-3">
                         <img style="width: 140px !important; width: auto; padding-bottom: 20px;" src="<?= base_url() ?>assets/landing-page/image/renomenu-logo-21.png" alt="logo-renomenu">
                         <div class="footer-address" style="color: white;">
-                            <a href="" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Beranda</span></a> <br>
-                            <a href="" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Fitur</span></a><br>
-                            <a href="" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Blog</span></a><br>
-                            <a href="" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Pusat
+                            <a href="<?= base_url() ?>" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Beranda</span></a> <br>
+                            <a href="<?= base_url() ?>#fitur" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Fitur</span></a><br>
+                            <a href="<?= base_url() ?>Blog/" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Blog</span></a><br>
+                            <a href="<?= base_url() ?>" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Pusat
                                     Bantuan</span></a><br>
-                            <a href="" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Kontak Kami</span></a>
+                            <a href="<?= base_url() ?>Contact" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Kontak Kami</span></a>
                         </div>
                     </div>
                     <div class="col-lg-5">

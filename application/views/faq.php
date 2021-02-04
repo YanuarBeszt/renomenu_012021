@@ -41,10 +41,10 @@
                     <div class=" col-6 col-sm-1 col-lg-6 col-xl-8   position-static order-lg-2">
                         <div class="main-navigation ">
                             <ul class="main-menu">
-                                <li class="menu-item"><a href="">Beranda</a></li>
-                                <li class="menu-item"><a href="">Pusat Bantuan</a></li>
-                                <li class="menu-item"><a href="">Blog</a></li>
-                                <li class="menu-item"><a href="">Contact</a></li>
+                                <li class="menu-item"><a href="<?= base_url() ?>">Beranda</a></li>
+                                <li class="menu-item"><a href="<?= base_url() ?>Bantuan/kategori">Pusat Bantuan</a></li>
+                                <li class="menu-item"><a href="<?= base_url() ?>Blog/">Blog</a></li>
+                                <li class="menu-item"><a href="<?= base_url() ?>Contact">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -85,10 +85,10 @@
                     <!-- mobile menu navigation start -->
                     <nav class="off-canvas-nav">
                         <ul class="mobile-menu">
-                            <li class="menu-item"><a href="">Beranda</a></li>
-                            <li class="menu-item"><a href="">Pusat Bantuan</a></li>
-                            <li class="menu-item"><a href="">Blog</a></li>
-                            <li class="menu-item"><a href="">Contact</a></li>
+                            <li class="menu-item"><a href="<?= base_url() ?>">Beranda</a></li>
+                            <li class="menu-item"><a href="<?= base_url() ?>Bantuan/kategori">Pusat Bantuan</a></li>
+                            <li class="menu-item"><a href="<?= base_url() ?>Blog/">Blog</a></li>
+                            <li class="menu-item"><a href="<?= base_url() ?>Contact">Contact</a></li>
                         </ul>
                     </nav>
                     <!-- mobile menu navigation end -->
@@ -109,7 +109,9 @@
 
         <div class="container">
             <div class="bread-crumb">
-                <span><a href=""><i class="fa fa-home"></i></a><i class="fas fa-chevron-right"></i></span><span><a href="">Akun</a></span>
+                <span><a href="<?= base_url() ?>Bantuan/kategori"><i class="fa fa-home"></i></a><i class="fas fa-chevron-right"></i></span><span><a href="">
+                        <?= $faq[0]->nameTopic ?>
+                    </a></span>
             </div>
         </div>
 
@@ -118,38 +120,16 @@
                 FAQ
             </div>
             <div class="row">
-                <div class="col-sm-12 col-md-6 col-xl-6">
-                    <a href="">
-                        <div class="question">
-                            <h6>Cara daftar akun Renomenu</h6>
-                            <i class="fas fa-chevron-right"></i>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-12 col-md-6 col-xl-6">
-                    <a href="">
-                        <div class="question">
-                            <h6>Lupa password</h6>
-                            <i class="fas fa-chevron-right"></i>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-12 col-md-6 col-xl-6">
-                    <a href="">
-                        <div class="question">
-                            <h6>Merubah nama akun</h6>
-                            <i class="fas fa-chevron-right"></i>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-12 col-md-6 col-xl-6">
-                    <a href="">
-                        <div class="question">
-                            <h6>Merubah password</h6>
-                            <i class="fas fa-chevron-right"></i>
-                        </div>
-                    </a>
-                </div>
+                <?php foreach ($faq as $key) : ?>
+                    <div class="col-sm-12 col-md-6 col-xl-6">
+                        <a href="<?= base_url() ?>Bantuan/konten/<?= $key->idTopic ?>/<?= $key->id ?>">
+                            <div class="question">
+                                <h6><?= $key->question ?></h6>
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
 
@@ -189,12 +169,11 @@
                     <div class="col-lg-3">
                         <img style="width: 140px !important; width: auto; padding-bottom: 20px;" src="<?= base_url() ?>assets/landing-page/image/renomenu-logo-21.png" alt="logo-renomenu">
                         <div class="footer-address" style="color: white;">
-                            <a href="" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Beranda</span></a> <br>
-                            <a href="" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Fitur</span></a><br>
-                            <a href="" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Blog</span></a><br>
-                            <a href="" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Pusat
+                            <a href="<?= base_url() ?>" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Beranda</span></a> <br>
+                            <a href="<?= base_url() ?>Blog" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Blog</span></a><br>
+                            <a href="<?= base_url() ?>Bantuan/kategori" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Pusat
                                     Bantuan</span></a><br>
-                            <a href="" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Kontak Kami</span></a>
+                            <a href="<?= base_url() ?>Contact" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Kontak Kami</span></a>
                         </div>
                     </div>
                     <div class="col-lg-5">

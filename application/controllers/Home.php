@@ -3,6 +3,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Home extends CI_Controller
 {
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model("M_Banner", "banner");
+		$this->load->model("M_Blog", "blog");
+		$this->load->model("M_Category", "category");
+		$this->load->model("M_Question", "question");
+	}
 
 	/**
 	 * Index Page for this controller.
@@ -21,6 +29,8 @@ class Home extends CI_Controller
 	 */
 	public function index()
 	{
-		$this->load->view('home');
+		$data["banner"] = $this->banner->getHomeBanner();
+		$data["blog"] = $this->blog->getHomeBlog();
+		$this->load->view('home', $data);
 	}
 }

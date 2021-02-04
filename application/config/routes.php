@@ -55,4 +55,10 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['Admin/Auth'] = 'Auth';
 $route['Admin'] = 'Auth';
+$route['Blog'] = 'Blog/landingPage';
+$route['Blog/artikel/(:any)'] = 'Blog/content/$1';
+$route['Bantuan/kategori'] = 'Question/category';
+$route['Bantuan/faq/(:any)'] = 'Question/faq/$1';
+$route['Bantuan/konten/(:any)/(:any)'] = 'Question/faqContent/$1/$2';
+
 // $route['/'] = 'home';

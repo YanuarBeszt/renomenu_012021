@@ -23236,7 +23236,7 @@ p {
 }
 
 section {
-	height: 88vh;
+	height: 100vh;
 }
 
 .banner-image {
@@ -23346,7 +23346,9 @@ section {
 
 .feature {
 	padding-top: 40px;
+	padding-bottom: 40px;
 	width: 100%;
+	display: inline-block;
 	text-align: center;
 }
 
@@ -23355,6 +23357,21 @@ section {
 	display: inline-block;
 	border-radius: 25px;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.element-feature:hover .menu-image {
+	width: 170px;
+	height: auto;
+	transition: 0.6s ease;
+	padding: 30px;
+}
+
+.element-feature:hover h5 {
+	display: block !important;
+	color: rgb(134, 134, 134);
+	text-align: center;
+	padding-bottom: 10px;
+	font-weight: bold;
 }
 
 .menu-image {

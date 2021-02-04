@@ -41,10 +41,10 @@
                     <div class=" col-6 col-sm-1 col-lg-6 col-xl-8   position-static order-lg-2">
                         <div class="main-navigation ">
                             <ul class="main-menu">
-                                <li class="menu-item"><a href="">Beranda</a></li>
-                                <li class="menu-item"><a href="">Pusat Bantuan</a></li>
-                                <li class="menu-item"><a href="">Blog</a></li>
-                                <li class="menu-item"><a href="">Contact</a></li>
+                                <li class="menu-item"><a href="<?= base_url() ?>">Beranda</a></li>
+                                <li class="menu-item"><a href="<?= base_url() ?>Bantuan/kategori">Pusat Bantuan</a></li>
+                                <li class="menu-item"><a href="<?= base_url() ?>Blog/">Blog</a></li>
+                                <li class="menu-item"><a href="<?= base_url() ?>Contact">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -85,10 +85,10 @@
                     <!-- mobile menu navigation start -->
                     <nav class="off-canvas-nav">
                         <ul class="mobile-menu">
-                            <li class="menu-item"><a href="">Beranda</a></li>
-                            <li class="menu-item"><a href="">Pusat Bantuan</a></li>
-                            <li class="menu-item"><a href="">Blog</a></li>
-                            <li class="menu-item"><a href="">Contact</a></li>
+                            <li class="menu-item"><a href="<?= base_url() ?>">Beranda</a></li>
+                            <li class="menu-item"><a href="<?= base_url() ?>Bantuan/kategori">Pusat Bantuan</a></li>
+                            <li class="menu-item"><a href="<?= base_url() ?>Blog/">Blog</a></li>
+                            <li class="menu-item"><a href="<?= base_url() ?>Contact">Contact</a></li>
                         </ul>
                     </nav>
                     <!-- mobile menu navigation end -->
@@ -112,66 +112,31 @@
                 Pusat Informasi Renomenu
             </div>
             <div class="category">
-                <a href="">
-                    <div class="cat-item">
-                        <span>Delivery</span>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="cat-item">
-                        <span>Promo</span>
-                    </div>
-                </a>
+                <?php foreach ($category as $key) : ?>
+                    <a href="">
+                        <div class="cat-item">
+                            <span><?= $key->name; ?></span>
+                        </div>
+                    </a>
+                <?php endforeach; ?>
             </div>
             <ul class="blog-post columns-3">
-                <li>
-                    <img src="https://ununsplash.imgix.net/photo-1414788020357-3690cfdab669?q=75&fm=jpg&s=da7d3842604f06bf5c6ded7f4fe7aeed" />
-                    <h3>‘Order Sekaligus’ - Order Food from Multiple Restaurants in One Location</h3>
-                    <div class="info">
-                        <div class="athor-blog">
-                            <span>Delivery</span>
-                        </div>
-                        <div class="date-blog">
-                            <span>20 Januari 2021</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <img src="https://unsplash.imgix.net/photo-1415889678233-eb900aeee9e1?q=75&fm=jpg&s=a41f4d6b1848cd673323fa4ee17da470" />
-                    <h3>Blog Post Two</h3>
-                    <div class="info">
-                        <div class="athor-blog">
-                            <span>Delivery</span>
-                        </div>
-                        <div class="date-blog">
-                            <span>20 Januari 2021</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <img src="https://unsplash.imgix.net/photo-1414542563971-94513793d046?q=75&fm=jpg&s=8fbfdbbec683a6b4634e558f7db67ee7" />
-                    <h3>Blog Post Three</h3>
-                    <div class="info">
-                        <div class="athor-blog">
-                            <span>Delivery</span>
-                        </div>
-                        <div class="date-blog">
-                            <span>20 Januari 2021</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <img src="https://ununsplash.imgix.net/photo-1416339134316-0e91dc9ded92?q=75&fm=jpg&s=883a422e10fc4149893984019f63c818" />
-                    <h3>Blog Post Four</h3>
-                    <div class="info">
-                        <div class="athor-blog">
-                            <span>Delivery</span>
-                        </div>
-                        <div class="date-blog">
-                            <span>20 Januari 2021</span>
-                        </div>
-                    </div>
-                </li>
+                <?php foreach ($blog as $key) : ?>
+                    <li>
+                        <a href="<?= base_url() ?>Blog/artikel/<?= $key->id; ?>">
+                            <img src="<?= base_url() ?>assets/images/upload/blog/header_image/<?= $key->header_image; ?>" />
+                            <h3><?= $key->title ?></h3>
+                            <div class="info">
+                                <div class="athor-blog">
+                                    <span><?= $key->name; ?></span>
+                                </div>
+                                <div class="date-blog">
+                                    <span><?= date("d-m-Y", strtotime($key->date)); ?></span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
             </ul>
         </div>
         <!-- Footer Section -->
@@ -198,12 +163,11 @@
                     <div class="col-lg-3">
                         <img style="width: 140px !important; width: auto; padding-bottom: 20px;" src="<?= base_url() ?>assets/landing-page/image/renomenu-logo-21.png" alt="logo-renomenu">
                         <div class="footer-address" style="color: white;">
-                            <a href="" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Beranda</span></a> <br>
-                            <a href="" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Fitur</span></a><br>
-                            <a href="" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Blog</span></a><br>
-                            <a href="" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Pusat
+                            <a href="<?= base_url() ?>" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Beranda</span></a> <br>
+                            <a href="<?= base_url() ?>Blog" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Blog</span></a><br>
+                            <a href="<?= base_url() ?>Bantuan/kategori" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Pusat
                                     Bantuan</span></a><br>
-                            <a href="" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Kontak Kami</span></a>
+                            <a href="<?= base_url() ?>Contact" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Kontak Kami</span></a>
                         </div>
                     </div>
                     <div class="col-lg-5">

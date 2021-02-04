@@ -10,6 +10,17 @@ class M_Banner extends CI_Model
         return $this->db->get($this->_table)->result();
     }
 
+    public function getHomeBanner()
+    {
+        $this->db->select('*');
+        $this->db->from($this->_table);
+        $this->db->where('is_deleted = ', 'n');
+        $this->db->limit(3);
+
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function getById($id)
     {
         $this->db->select("*");

@@ -38,17 +38,23 @@ class Question extends CI_Controller
 
 	public function category()
 	{
-		$this->load->view('category_faq');
+		$data["kategori"] = $this->category->getAll();
+		// $data["blog"] = $this->blog->getHomeBlog();
+		$this->load->view('category_faq', $data);
 	}
 
-	public function faq()
+	public function faq($id)
 	{
-		$this->load->view('faq');
+		$data["kategori"] = $this->category->getAll();
+		$data["faq"] = $this->question->getDataByCategory($id);
+		$this->load->view('faq', $data);
 	}
 
-	public function faqContent()
+	public function faqContent($idCategory, $id)
 	{
-		$this->load->view('faq_content');
+		$data["faq"] = $this->question->getDataByCategory($idCategory);
+		$data["content"] = $this->question->getSteps($id);
+		$this->load->view('faq_content', $data);
 	}
 
 	public function action_store()

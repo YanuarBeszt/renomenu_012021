@@ -10,6 +10,12 @@ class M_Category extends CI_Model
         return $this->db->get($this->_table)->result();
     }
 
+    public function allKeyword()
+    {
+        $this->db->where('is_deleted', "n");
+        return $this->db->get("keyword")->result();
+    }
+
     public function getAllDropdown()
     {
         return $this->db->get($this->_table)->result();
