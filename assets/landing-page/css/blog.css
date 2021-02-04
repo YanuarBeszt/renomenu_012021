@@ -1,9 +1,15 @@
+.blog-title {
+	padding-top: 40px;
+	font-size: 30px;
+	font-weight: 600;
+	letter-spacing: 3px;
+	word-spacing: 5px;
+}
+
 .title {
 	padding-top: 40px;
 	font-size: 30px;
 	font-weight: 600;
-	letter-spacing: 4px;
-	word-spacing: 6px;
 }
 
 .category {
@@ -175,6 +181,18 @@ ul.blog-post.columns-3 li {
 	right: 25%;
 }
 
+.contact-title {
+	position: absolute;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	width: 100%;
+	height: 100px;
+	right: 0;
+	padding-top: 20px;
+	z-index: 20;
+}
+
 .bread-crumb {
 	color: #707070;
 	padding-top: 40px;
@@ -195,4 +213,31 @@ ul.blog-post.columns-3 li {
 	padding: 30px;
 	border: 2px solid grey;
 	border-radius: 20px;
+}
+
+.faq-category {
+	padding-top: 40px;
+	height: 500px;
+}
+
+.faq-category ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	width: 700px;
+	height: 100%;
+}
+
+.faq-category li {
+	list-style: none;
+	padding-bottom: 10px;
+}
+
+.faq-category li a {
+	font-size: 14pt;
+	font-weight: 600;
+	color: #008dd8;
 }

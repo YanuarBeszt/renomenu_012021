@@ -180,7 +180,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 ">
-                        <span class="contact-title p1" style="color: white;">Tentang Kami</span>
+                        <span class="p1" style="color: white; font-size:16pt; font-weight:600; padding-bottom:20px;">Tentang Kami</span>
                         <p class="p1" style="color: white;">
                             Aplikasi Menu Elektronik, Order dengan
                             pembayaran tanpa terpaku pada aplikasi
@@ -207,7 +207,7 @@
                         </div>
                     </div>
                     <div class="col-lg-5">
-                        <span class="contact-title p1" style="color: white;">Kontak Kami</span>
+                        <span class="p1" style="color: white; font-weight:600; padding-bottom:20px; font-size:16pt;">Kontak Kami</span>
                         <div class="footer-address">
                             <a href="" style="padding-bottom: 10px;"><i class="fas fa-globe fa-lg" style="color: white;"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">renotechmenu.com</span></a> <br>
                             <a href="" style="padding-bottom: 10px;"><i class="fas fa-phone-alt fa-lg" style="color: white;"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">(021)

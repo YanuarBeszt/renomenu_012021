@@ -97,8 +97,6 @@
             </div>
         </aside>
         <!--Off Canvas Navigation End-->
-
-        <!--Off Canvas Navigation End-->
         <div class="search-area">
             <form id="search-form">
                 <div class="search">
@@ -106,104 +104,19 @@
                     <button type="submit" class="corner" /><i class="fa fa-search"></i></button>
                 </div>
             </form>
-            <img class="search-background" src="<?= base_url() ?>assets/landing-page/image/Rijsttafel.jpg" alt="">
+            <img class="search-background" src="<?= base_url() ?>assets/landing-page/image/office.jpg" alt="">
         </div>
 
         <div class="container">
-            <div class="bread-crumb">
-                <span><a href=""><i class="fa fa-home"></i></a><i class="fas fa-chevron-right"></i></span><span><a href="">Blog</a><i class="fas fa-chevron-right"></i></span><span id=""><a href="">‘Order Sekaligus’ - Order Food from Multiple Restaurants in One Location</a></span>
+            <div class="title animated fadeInDown" id="title">
+                Cari Kategori Bantuan
             </div>
-        </div>
-
-        <div class="container">
-            <div class="inner-blog">
-                <div class="blog-title animated fadeInDown" style="padding-top: 10px !important;">
-                    ‘Order Sekaligus’ - Order Food from Multiple Restaurants in One Location
-                </div>
-                <div class="category">
-                    <div class="cat-item">
-                        <span>Delivery</span>
-                    </div>
-                    <i class="fa fa-circle" style="font-size: 6px;"></i>
-                    <span style="font-size: 11pt; padding-left:10px;">20 Januari 2020</span>
-                </div>
-                <img style="width: 100%; height:400px; object-fit:cover; padding-bottom:40px;" src="<?= base_url() ?>assets/landing-page/image/delivery.jpg" alt="">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in est sit amet eros auctor tincidunt in ut libero. Etiam accumsan vel lectus non ullamcorper. Proin neque ex, accumsan nec malesuada a, auctor eu nunc. Pellentesque auctor dictum elit in porttitor. Morbi id nibh malesuada, laoreet dolor a, facilisis nisl. Quisque ligula orci, pharetra eu aliquam et, finibus vitae purus. Integer nec tristique turpis. Cras egestas eleifend odio in blandit.</p>
-                <p>Curabitur iaculis velit hendrerit lectus cursus commodo. Ut efficitur nisl velit, sed posuere lacus suscipit sed. Nulla et nisi at lectus lobortis condimentum in ac ipsum. Curabitur non laoreet libero, quis cursus nisi. Sed eget pharetra sem. Nulla efficitur neque rhoncus luctus fringilla. Cras et luctus dolor. Proin felis lacus, efficitur vel lacus vitae, dictum tempor elit. Etiam tincidunt magna quis lacus pretium, eu fermentum eros scelerisque. Aenean ut felis sodales, lacinia purus vestibulum, convallis orci. Aenean maximus, neque aliquet dignissim finibus, orci mi hendrerit diam, sit amet aliquam massa erat vitae risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla quis diam odio. Aenean enim nisl, mollis nec purus placerat, hendrerit vulputate erat. Etiam lorem nibh, ornare a eros ac, molestie vehicula turpis.</p>
-                <p> Curabitur iaculis velit hendrerit lectus cursus commodo. Ut efficitur nisl velit, sed posuere lacus suscipit sed. Nulla et nisi at lectus lobortis condimentum in ac ipsum. Curabitur non laoreet libero, quis cursus nisi. Sed eget pharetra sem. Nulla efficitur neque rhoncus luctus fringilla. Cras et luctus dolor. Proin felis lacus, efficitur vel lacus vitae, dictum tempor elit. Etiam tincidunt magna quis lacus pretium, eu fermentum eros scelerisque. Aenean ut felis sodales, lacinia purus vestibulum, convallis orci. Aenean maximus, neque aliquet dignissim finibus, orci mi hendrerit diam, sit amet aliquam massa erat vitae risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla quis diam odio. Aenean enim nisl, mollis nec purus placerat, hendrerit vulputate erat. Etiam lorem nibh, ornare a eros ac, molestie vehicula turpis.</p>
-                <p>Duis eu placerat ante. Etiam blandit turpis vel urna consequat placerat. Proin vitae tempor augue, non gravida augue. Praesent nunc erat, gravida eu risus in, hendrerit interdum lacus. Maecenas et nisl magna. Quisque tristique, massa ac vehicula mattis, nibh lorem porta eros, id semper arcu elit quis metus. Nullam in augue sem. Nullam eu commodo enim. Aenean malesuada dapibus mauris. Nullam tincidunt turpis et lacus gravida pharetra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi molestie, neque quis bibendum ultricies, felis magna dapibus libero, sit amet rutrum ante lectus vitae urna. Mauris ac sagittis eros, ac ornare lorem. Aliquam fringilla venenatis ligula, vel accumsan nulla malesuada sit amet.</p>
-                </p>
-            </div>
-        </div>
-        <div class="container">
-            <div class="title animated fadeInDown" style="padding-top: 50px !important; padding-bottom:20px;">
-                Artikel Terbaru Kami
-            </div>
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-xl-6">
-                    <a href="">
-                        <div class="new-blog">
-                            <img class="blog_image" src="<?= base_url() ?>assets/landing-page/image/restauran.jpeg" alt="restauran">
-                            <div class="blog_text">
-                                <h6>10 restauran mewah di jakarta</h6>
-                                <div class="athor-blog">
-                                    <span>admin</span>
-                                </div>
-                                <div class="date-blog">
-                                    <span>20 Januari 2021</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-12 col-md-6 col-xl-6">
-                    <a href="">
-                        <div class="new-blog">
-                            <img class="blog_image" src="<?= base_url() ?>assets/landing-page/image/restauran.jpeg" alt="restauran">
-                            <div class="blog_text">
-                                <h6>10 restauran mewah di jakarta</h6>
-                                <div class="athor-blog">
-                                    <span>admin</span>
-                                </div>
-                                <div class="date-blog">
-                                    <span>20 Januari 2021</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-12 col-md-6 col-xl-6">
-                    <a href="">
-                        <div class="new-blog">
-                            <img class="blog_image" src="<?= base_url() ?>assets/landing-page/image/restauran.jpeg" alt="restauran">
-                            <div class="blog_text">
-                                <h6>10 restauran mewah di jakarta</h6>
-                                <div class="athor-blog">
-                                    <span>admin</span>
-                                </div>
-                                <div class="date-blog">
-                                    <span>20 Januari 2021</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-12 col-md-6 col-xl-6">
-                    <a href="">
-                        <div class="new-blog">
-                            <img class="blog_image" src="<?= base_url() ?>assets/landing-page/image/restauran.jpeg" alt="restauran">
-                            <div class="blog_text">
-                                <h6>10 restauran mewah di jakarta</h6>
-                                <div class="athor-blog">
-                                    <span>admin</span>
-                                </div>
-                                <div class="date-blog">
-                                    <span>20 Januari 2021</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+            <div class="faq-category">
+                <ul>
+                    <li><a href="">Akun</a></li>
+                    <li><a href="">Daftar Merchant</a></li>
+                    <li><a href="">Menu</a></li>
+                </ul>
             </div>
         </div>
         <!-- Footer Section -->
@@ -263,7 +176,6 @@
                     </div>
                 </div>
             </div>
-        </section>
     </div>
     <!-- Vendor JS-->
     <script src="<?= base_url() ?>assets/landing-page/plugins/jquery/jquery.min.js"></script>

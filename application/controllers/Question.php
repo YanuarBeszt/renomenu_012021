@@ -6,9 +6,9 @@ class Question extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		if (!$this->session->userdata('user_logged')) {
-			redirect('Auth');
-		}
+		// if (!$this->session->userdata('user_logged')) {
+		// 	redirect('Auth');
+		// }
 		$this->load->helper(array('form', 'url'));
 		$this->load->model("M_Category", "category");
 		$this->load->model("M_Question", "question");
@@ -34,6 +34,21 @@ class Question extends CI_Controller
 		$data['content'] = 'content_question';
 		// return $data['category'];
 		$this->load->view('index', $data);
+	}
+
+	public function category()
+	{
+		$this->load->view('category_faq');
+	}
+
+	public function faq()
+	{
+		$this->load->view('faq');
+	}
+
+	public function faqContent()
+	{
+		$this->load->view('faq_content');
 	}
 
 	public function action_store()
