@@ -98,10 +98,10 @@
 
 		<!-- Banner Section -->
 
-		<section style="padding-top: 60px;" class="hero-area position-relative pb-lg--0">
+		<section style="padding-top: 60px;" class="hero">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-10 col-lg-9 col-xl-8  pb-lg--90 pb-xl--0 order-2 order-md-1">
+					<div class="col-md-10 col-lg-9 col-xl-8">
 						<div class="hero-content">
 							<h3 class="title mb--30">
 								Aplikasi Menu Elektronik, <br>
@@ -146,7 +146,7 @@
 		</section>
 
 		<!-- Feature Secction -->
-		<section class="feature-section section-padding-top">
+		<section class="feature-section">
 			<div class="container">
 				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 					<ol class="carousel-indicators">
@@ -173,19 +173,19 @@
 				<div class="feature">
 					<div class="element-feature">
 						<img class="menu-image" src="<?= base_url() ?>assets/landing-page/image/delivery button.png" alt="delivery button">
-						<h5 style="display: none;">Delivery</h5>
+						<span style="display: none;">Delivery</span>
 					</div>
 					<div class="element-feature">
 						<img class="menu-image" src="<?= base_url() ?>assets/landing-page/image/dine in button.png" alt="dine in button">
-						<h5 style="display: none;">Dine In</h5>
+						<span style="display: none;">Dine In</span>
 					</div>
 					<div class="element-feature">
 						<img class="menu-image" src="<?= base_url() ?>assets/landing-page/image/takeAway button.png" alt="takeAway button">
-						<h5 style="display: none;">Take Away</h5>
+						<span style="display: none;">Take Away</span>
 					</div>
 					<div class="element-feature">
 						<img class="menu-image" src="<?= base_url() ?>assets/landing-page/image/qr button.png" alt="qr button">
-						<h5 style="display: none;">QR Code Menu</h5>
+						<span style="display: none;">QR Code Menu</span>
 					</div>
 				</div>
 			</div>
@@ -195,7 +195,7 @@
 		<section class="content-section section-padding-top" style="padding-top: 40px; padding-bottom: 40px;">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-9 col-lg-8 col-xl-7">
+					<div class="col-md-9 col-lg-8 col-xl-7" style="padding-bottom: 60px;">
 						<div id="carouselIndicators" class="help-image carousel slide" data-ride="carousel">
 							<ol class="carousel-indicators">
 								<li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
