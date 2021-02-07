@@ -98,7 +98,7 @@
 
 		<!-- Banner Section -->
 
-		<section style="padding-top: 60px;" class="hero">
+		<section class="hero">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-10 col-lg-9 col-xl-8">
@@ -192,7 +192,7 @@
 		</section>
 
 		<!-- Content Section 01 -->
-		<section class="content-section section-padding-top" style="padding-top: 40px; padding-bottom: 40px;">
+		<section class="content-section section-padding-top">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-9 col-lg-8 col-xl-7" style="padding-bottom: 60px;">
@@ -265,7 +265,7 @@
 						<a href="" style="padding-left: 15px;"><i class="fab fa-youtube fa-3x" style="color: white;"></i></a>
 					</div>
 					<div class="col-lg-3">
-						<img style="width: 140px !important; width: auto; padding-bottom: 20px;" src="<?= base_url() ?>assets/landing-page/image/renomenu-logo-21.png" alt="logo-renomenu">
+						<img style="width: 140px !important; width: auto; padding-bottom: 20px;" class="logo-footer" src="<?= base_url() ?>assets/landing-page/image/renomenu-logo-21.png" alt="logo-renomenu">
 						<div class="footer-address" style="color: white;">
 							<a href="" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Beranda</span></a> <br>
 							<a href="" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Fitur</span></a><br>

@@ -23472,18 +23472,25 @@ p {
 @media (min-width: 414px) {
 	.hero {
 		height: 35vh;
+		padding-top:30px;
 	}
 
 	.feature-section{
 		padding-top: 60px;
-		height: 55vh;
+		height: 75vh;
 	}
+
+	/* .footer-section{
+		position: absolute;
+		bottom: 0;
+	} */
 
 	.googleplayblack{
 		width: 130px !important;
 		height: auto !important;
 	}
 	.title {
+		padding-top: 30px;
 		font-size: 1.2em;
 		color: #000000;
 		font-weight: 700;
@@ -23499,6 +23506,10 @@ p {
 		height: auto;
 		padding: 30px;
 		display: inline-block;
+	}
+
+	.content-section{
+		height: 140vh;
 	}
 
 	.element-feature:hover .menu-image {
@@ -23728,34 +23739,4 @@ p {
 	height: 100%;
 }
 
-.question {
-	float: left;
-	position: relative;
-	width: 450px;
-	margin-bottom: 20px;
-	border-radius: 10px;
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-	padding: 20px;
-	display: block;
-}
-
-.question::after {
-	visibility: hidden;
-	display: block;
-	height: 0;
-	clear: both;
-}
-
-.question i {
-	margin-right: 10px;
-	position: absolute;
-	top: 50%;
-	right: 0;
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-}
-
-.question h6 {
-	float: left;
-}
 /*# sourceMappingURL=style.css.map */
