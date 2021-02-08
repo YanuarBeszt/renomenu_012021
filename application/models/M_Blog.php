@@ -195,4 +195,22 @@ class M_Blog extends CI_Model
     {
         return $this->db->order_by('created_date', 'DESC')->get_where($this->_table, array('is_deleted' => 'n'), 5, 0)->result_array();
     }
+    
+    public function search($search)
+    {
+        $this->db->select('blog.id, blog.keyword_id, blog.blog, keyword.name');
+        $this->db->like('blog.blog', $search);
+        $this->db->or_like('keyword.name', $search);
+        $this->db->join('blog', 'blog_keyword.blog_id = blog.id');
+        $this->db->join('keyword', 'blog_keyword.keyword_id = keyword.id');
+        $result = $this->db->get('blog_keyword')->result();
+
+        if ($result == null) {
+            $this->db->select('blog.id, blog.blog');
+            $this->db->like('blog', $search);
+            return $this->db->get($this->_table)->result();
+        }
+
+        return $result;
+    }
 }

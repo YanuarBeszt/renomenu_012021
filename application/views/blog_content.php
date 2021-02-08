@@ -19,6 +19,11 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/landing-page/css/style.css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/landing-page/css/settings.css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/landing-page/css/blog.css" />
+    <script src="<?php echo base_url('assets/admin'); ?>/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="<?php echo base_url('assets/admin'); ?>/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="<?php echo base_url('assets/admin'); ?>/plugins/jquery-ui/jquery-ui.js"></script>
 </head>
 
 <body>
@@ -102,7 +107,7 @@
         <div class="search-area">
             <form id="search-form">
                 <div class="search">
-                    <input type="text" name="search" class="round" style="padding-right: 40px; padding-left:20px;" placeholder="Search" />
+                    <input type="text" name="search" id="search" class="round" style="padding-right: 40px; padding-left:20px;" placeholder="Search" />
                     <button type="submit" class="corner" /><i class="fa fa-search"></i></button>
                 </div>
             </form>
@@ -129,6 +134,22 @@
                 </div>
                 <img style="width: 100%; height:400px; object-fit:cover; padding-bottom:40px;" src="<?= base_url() ?>assets/images/upload/blog/header_image/<?= $blog[0]["header_image"]; ?>" alt="<?= $blog[0]["header_image"]; ?>">
                 <?= $blog[0]["content"]; ?>
+                <br>
+                <div class="button-share">
+                    <p>Bagikan artikel</p>
+                    <a href="">
+                        <img class="btn-share" src="<?= base_url();?>assets/landing-page/image/wa.png" alt="wa-share">
+                    </a>
+                    <a href="">
+                        <img class="btn-share" src="<?= base_url();?>assets/landing-page/image/twitter.png" alt="twitter-share">
+                    </a>
+                    <a href="">
+                        <img class="btn-share" src="<?= base_url();?>assets/landing-page/image/facebook.png" alt="facebook-share">
+                    </a>
+                    <a href="">
+                        <img class="btn-share" src="<?= base_url();?>assets/landing-page/image/share.png" alt="button-share">
+                    </a>
+                </div>
             </div>
         </div>
         <div class="container">
@@ -161,7 +182,7 @@
         <section class="footer-section section-padding-top" style="background-color: #1A1A1A; padding-top: 80px;">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 ">
+                    <div class="col-md-4 col-lg-4 ">
                         <span class="p1" style="color: white; font-size:16pt; font-weight:600; padding-bottom:20px;">Tentang Kami</span>
                         <p class="p1" style="color: white;">
                             Aplikasi Menu Elektronik, Order dengan
@@ -177,7 +198,7 @@
                         <a href="" style="padding-left: 15px;"><i class=" fab fa-instagram fa-3x" style="color: white;"></i></a>
                         <a href="" style="padding-left: 15px;"><i class="fab fa-youtube fa-3x" style="color: white;"></i></a>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-md-3 col-lg-3">
                         <img style="width: 140px !important; width: auto; padding-bottom: 20px;" class="logo-footer" src="<?= base_url() ?>assets/landing-page/image/renomenu-logo-21.png" alt="logo-renomenu">
                         <div class="footer-address" style="color: white;">
                             <a href="<?= base_url() ?>" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Beranda</span></a> <br>
@@ -188,7 +209,7 @@
                             <a href="<?= base_url() ?>Contact" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Kontak Kami</span></a>
                         </div>
                     </div>
-                    <div class="col-lg-5">
+                    <div class="col-md-5 col-lg-5">
                         <span class="p1" style="color: white; font-size:16pt; font-weight:600; padding-bottom:20px;">Kontak Kami</span>
                         <div class="footer-address">
                             <a href="" style="padding-bottom: 10px;"><i class="fas fa-globe fa-lg" style="color: white;"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">renotechmenu.com</span></a> <br>
@@ -215,6 +236,8 @@
             </div>
         </section>
     </div>
+    <script type="text/javascript" src="<?= base_url() . 'assets/landing-page/js/custom.js?' . 'random=' . uniqid() ?> "></script>
+
     <!-- Vendor JS-->
     <script src="<?= base_url() ?>assets/landing-page/plugins/jquery/jquery.min.js"></script>
     <script src="<?= base_url() ?>assets/landing-page/plugins/jquery/jquery-migrate.min.js"></script>

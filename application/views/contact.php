@@ -227,7 +227,7 @@
         <section class="footer-section section-padding-top" style="background-color: #1A1A1A; padding-top: 80px;">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 ">
+                    <div class="col-md-4 col-lg-4 ">
                         <p class="" style="color: white;">Tentang Kami</p>
                         <p class="p1" style="color: white; position:relative;">
                             Aplikasi Menu Elektronik, Order dengan
@@ -243,7 +243,7 @@
                         <a href="" style="padding-left: 15px;"><i class=" fab fa-instagram fa-3x" style="color: white;"></i></a>
                         <a href="" style="padding-left: 15px;"><i class="fab fa-youtube fa-3x" style="color: white;"></i></a>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-md-3 col-lg-3">
                         <img style="width: 140px !important; width: auto; padding-bottom: 20px;" class="logo-footer" src="<?= base_url() ?>assets/landing-page/image/renomenu-logo-21.png" alt="logo-renomenu">
                         <div class="footer-address" style="color: white;">
                             <a href="<?= base_url() ?>" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Beranda</span></a> <br>
@@ -253,7 +253,7 @@
                             <a href="<?= base_url() ?>Contact" style="padding-bottom: 10px;"><i class="fas fa-chevron-right fa-lg"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">Kontak Kami</span></a>
                         </div>
                     </div>
-                    <div class="col-lg-5">
+                    <div class="col-md-5 col-lg-5">
                         <span class="p1" style="color: white; font-size:16pt; font-weight:600; padding-bottom:20px;">Kontak Kami</span>
                         <div class="footer-address">
                             <a href="" style="padding-bottom: 10px;"><i class="fas fa-globe fa-lg" style="color: white;"></i></i><span style="color: white; padding-left: 10px; font-size: medium;">renotechmenu.com</span></a> <br>

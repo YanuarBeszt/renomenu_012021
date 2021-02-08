@@ -236,75 +236,6 @@ class Blog extends CI_Controller
         redirect('blog');
     }
 
-    public function blog_home()
-    {
-        $this->load->library('pagination');
-        $config['base_url'] = 'http://localhost/support/blog/blog_home/';
-        $config['total_rows'] = $this->M_Blog->countBlogData();
-        $config['per_page'] = 12;
-
-        $config['full_tag_open'] = '<nav><ul class="pagination">';
-        $config['full_tag_close'] = '</ul></nav>';
-
-        $config['first_link'] = 'First';
-        $config['first_tag_open'] = '<li class="page-item">';
-        $config['first_tag_close'] = '</li>';
-
-        $config['last_link'] = 'Last';
-        $config['last_tag_open'] = '<li class="page-item">';
-        $config['last_tag_close'] = '</li>';
-
-        $config['next_link'] = '&raquo';
-        $config['next_tag_open'] = '<li class="page-item">';
-        $config['next_tag_close'] = '</li>';
-
-        $config['prev_link'] = '&laquo';
-        $config['prev_tag_open'] = '<li class="page-item">';
-        $config['prev_tag_close'] = '</li>';
-
-        $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link">';
-        $config['cur_tag_close'] = '</a></li>';
-
-        $config['num_tag_open'] = '<li class="page-item">';
-        $config['num_tag_close'] = '</li>';
-
-        $config['attributes'] = array('class' => 'page-link');
-
-        $this->pagination->initialize($config);
-
-        $data["title"] = "Blog & News";
-
-        // $data['blog'] = $this->M_Blog->getAllBlog();
-        $data['start'] = $this->uri->segment(3);
-        $data['blog'] = $this->M_Blog->getBlog($config['per_page'], $data['start']);
-
-        $data['recent_blog'] = $this->M_Blog->recentBlog();
-
-        if ($this->input->post('searchKeyword')) {
-            $data['blog'] = $this->M_Blog->searchBlogData();
-        }
-
-        // var_dump($data['blog']);
-        // die;
-
-        // $data['created_by'] = $this->M_Blog->getName();
-        $data["landingpage"] = false;
-        $this->session->set_userdata('site_lang',  "indonesia");
-        $this->load->view('blog_home', $data);
-    }
-
-    public function action_detail($id)
-    {
-        $data["title"] = "Detail Blog";
-        $data['blog'] = $this->M_Blog->getBlogDetail($id);
-        // var_dump($data['blog']);
-        // die;
-        // $data['created_by'] = $this->M_Blog->getName();
-        $data["landingpage"] = false;
-        $this->session->set_userdata('site_lang',  "indonesia");
-        $this->load->view('blog_detail', $data);
-    }
-
     // Upload image summernote
     function upload_image()
     {
@@ -351,4 +282,11 @@ class Blog extends CI_Controller
             echo 'File Delete Successfully';
         }
     }
+
+	public function Search()
+	{
+		$search =  $this->input->post('search');
+		$query = $this->question->search($search);
+		echo json_encode($query);
+	}
 }
