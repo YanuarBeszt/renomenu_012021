@@ -31,6 +31,14 @@
                                     <input class="form-control" type="text" name="blogTitle" id="blogTitle" placeholder="Title" value="<?= $blog['title'] ?>">
                                     <small class="form-text text-danger"><?= form_error('blogTitle') ?></small>
                                 </div>
+                                <?php if ($blog['header_image'] != NULL) : ?>
+                                    <img src="<?= base_url() ?>assets/images/upload/blog/header_image/<?= $blog['header_image'] ?>" width="50%" alt="">
+                                <?php endif; ?>
+                                <div class="form-group">
+                                    <label for="blogHeaderImg">Header Image</label>
+                                    <input class="form-control-file" type="file" id="blogHeaderImg" name="blogHeaderImg">
+                                    <small class="form-text text-danger"><?= form_error('blogHeaderImg') ?></small>
+                                </div>
                                 <div class="form-group">
                                     <label for="keyword[]">Keyword</label>
                                     <select name="keyword[]" class="form-control keyword-select" placeholder="Insert Keyword" multiple>
@@ -52,26 +60,7 @@
                                     <textarea class="form-control" type="text" id="blogContent" name="blogContent" placeholder="Content" rows="100"><?= $blog['content'] ?></textarea>
                                     <small class="form-text text-danger"><?= form_error('blogContent') ?></small>
                                 </div>
-                                <button class="btn btn-primary" type="submit" onclick="return confirm('Apakah anda yakin mengedit data ini?')">Edit</button>
-
-                                <!-- <input type="hidden" name="id" value="<?= $blog['id'] ?>">
-                                <input type="hidden" id="old_headerImage" name="old_headerImage" value="<?= $blog['header_image'] ?>">
-                                <div class="form-group">
-                                    <label for="blogTitle">Title</label>
-                                    <input class="form-control" type="text" name="blogTitle" id="blogTitle" placeholder="Title" value="<?= $blog['title'] ?>">
-                                    <small class="form-text text-danger"><?= form_error('blogTitle') ?></small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="blogHeaderImg">Header Image</label>
-                                    <input class="form-control-file" type="file" id="blogHeaderImg" name="blogHeaderImg" value="<?= $blog['header_image'] ?>">
-                                    <small class="form-text text-danger"><?= form_error('blogHeaderImg') ?></small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="blogContent">Content</label>
-                                    <textarea class="form-control" type="text" id="blogContent" name="blogContent" placeholder="Content" rows="100"><?= $blog['content'] ?></textarea>
-                                    <small class="form-text text-danger"><?= form_error('blogContent') ?></small>
-                                </div>
-                                <button class="btn btn-primary" type="submit" onclick="return confirm('Apakah anda yakin mengedit data ini?')">Edit</button> -->
+                                <button class="btn btn-primary" type="submit" onclick="return confirm('Apakah anda yakin mengedit data ini?')">Ubah</button>
                             </form>
                         </div>
                     </div>

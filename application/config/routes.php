@@ -55,10 +55,17 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['Admin/Auth'] = 'Auth';
 $route['Admin'] = 'Auth';
-$route['Blog'] = 'Blog/landingPage';
+$route['list/Blog'] = 'Blog/landingPage';
 $route['Blog/artikel/(:any)'] = 'Blog/content/$1';
 $route['Bantuan/kategori'] = 'Question/category';
 $route['Bantuan/faq/(:any)'] = 'Question/faq/$1';
 $route['Bantuan/konten/(:any)/(:any)'] = 'Question/faqContent/$1/$2';
+
+$route['blog/edit'] = 'Blog/action_edit';
+$route['blog/edit/(:num)'] = 'Blog/action_edit/$1';
+
+$route['blog_home'] = 'Blog/blog_home';
+$route['blog_home/(:num)'] = 'Blog/blog_home/$1';
+$route['blog_home/detail/(:num)'] = 'Blog/action_detail/$1';
 
 // $route['/'] = 'home';
