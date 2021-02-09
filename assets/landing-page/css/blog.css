@@ -28,6 +28,7 @@
 .cat-item:hover {
 	border-color: #e50505;
 	color: #e50505;
+	cursor: pointer;
 }
 
 nav a {
