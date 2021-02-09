@@ -5,23 +5,12 @@ const tagBlogs = (id) =>
 			url: `${BASE_URL}Blog/getBlogsByIdTag`,
 			data: { idPF: id },
 			type: "POST",
+			dataType: "json",
 			success: (res) => resolve(res),
 		});
 	});
 
 $(document).ready(function () {
-	//add intro session introjs every first running
-	function introSession() {
-		introJs().setOption("showBullets", false).start();
-		sessionStorage.setItem("intro", "TRUE");
-	}
-
-	//running intro js if does not have intro session
-	var intro = sessionStorage.getItem("intro");
-	if (intro == null) {
-		introSession();
-	}
-
 	//function click search result
 	$(document).on("click", ".btn-Squestion", function (e) {
 		e.preventDefault();
@@ -38,6 +27,7 @@ $(document).ready(function () {
 		const id = $(this).attr("id");
 
 		tagBlogs(id).then((res) => {
+			$(".blog-post").html("");
 			$(".blog-post").html(res);
 			// location.href = "#sectionTopics";
 		});

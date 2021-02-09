@@ -87,6 +87,32 @@ class Blog extends CI_Controller
         $this->load->view('blog_content', $data);
     }
 
+    public function getBlogsByIdTag()
+    {
+		$id = $this->input->post('idPF');
+        $list = $this->blog->getByIdTag($id);
+
+		$data = '';
+		for ($i = 0; $i <= count($list) - 1; $i++) {
+			$data .= '<li>';
+			$data .= '<a href="' . base_url() . 'Blog/artikel/' . $list[$i]->id . '">';
+            $data .= '<img src="' . base_url() . 'assets/images/upload/blog/header_image/' . $list[$i]->header_image . '" />';
+			$data .= '<h3>' . $list[$i]->title . '</h3>';
+            $data .= '<div class="info">';
+            $data .= '<div class="athor-blog">';
+            $data .= '<span>' . $list[$i]->name . '</span>';
+            $data .= '</div>';
+            $data .= '<div class="date-blog">';
+            $data .= '<span>' . date("d-m-Y", strtotime($list[$i]->created_date)) . '</span>';
+            $data .= '</div>';
+            $data .= '</div>';
+            $data .= '</a>';
+            $data .= '</li>';
+		}
+
+		echo json_encode([$data]);
+    }
+
     public function create()
     {
         if (!$this->session->userdata('user_logged')) {
@@ -154,75 +180,59 @@ class Blog extends CI_Controller
         $data["landingpage"] = false;
         $data['content'] = 'component/admin/blog/blog_update';
 
-        $data['blog'] = $this->M_Blog->getBlogById($id);
-
         $this->form_validation->set_rules('blogTitle', 'Title tidak boleh kosong', 'required|max_length[50]');
-        // $this->form_validation->set_rules('blogHeaderImg', 'Header Image tidak boleh kosong', 'required');
-        // if (empty($_FILES['blogHeaderImg']['name'])) {
-        //     $this->form_validation->set_rules('blogHeaderImg', 'Document', 'required');
-        // }
-        $this->form_validation->set_rules('keyword', 'Keyword tidak boleh kosong', 'required');
         $this->form_validation->set_rules('blogContent', 'Content tidak boleh kosong', 'required');
 
+        $data['blog'] = $this->M_Blog->getBlogById($id);
         $data['keyword'] = $this->M_Tags->getAllKeyword();
         $data['keyword_id'] = $this->M_Blog->getKeywordByBlogId($id);
 
-        // var_dump($data['keyword_id']);
-        // die;
+        $old_headerImg = $data['blog']['header_image'];
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('index', $data);
         } else {
-            $keyword = $this->input->post('keyword');
+            if ($_FILES['blogHeaderImg']['name'] != NULL) {
+                $config['upload_path'] = realpath(APPPATH . '../assets/images/upload/blog/header_image/');
+                $config['allowed_types'] = 'jpg|png|PNG';
+                $nmfile = time() . "_" . $_FILES['blogHeaderImg']['name'];
+                $config['file_name'] = $nmfile;
 
-            $this->M_Blog->editBlogData($id, $keyword);
+                $this->load->library('upload');
+                $this->upload->initialize($config);
 
-            var_dump($_POST);
-            die;
+                if ($this->upload->do_upload("blogHeaderImg")) {
 
-            redirect('blog');
+                    if ($data['blog']['header_image'] != NULL) {
+                        $imagepath = realpath(APPPATH . '../assets/images/upload/blog/header_image/' . $old_headerImg);
+                        unlink($imagepath);
+                    }
+
+                    $data = array('upload_data' => $this->upload->data());
+
+                    $header_image = $data['upload_data']['file_name'];
+
+                    $keyword = $this->input->post('keyword');
+
+                    $this->M_Blog->editBlogData($id, $header_image, $keyword);
+
+                    $this->session->set_flashdata('flashBlog', 'Data berhasil <strong>diedit</strong>');
+                    redirect('blog');
+                } else {
+                    $error = array('error' => $this->upload->display_errors());
+                    echo '<div class="alert alert-danger">' . $error['error'] . '</div>';
+                }
+            } else {
+                $header_image = $old_headerImg;
+
+                $keyword = $this->input->post('keyword');
+
+                $this->M_Blog->editBlogData($id, $header_image, $keyword);
+
+                $this->session->set_flashdata('flashBlog', 'Data berhasil <strong>diedit</strong>');
+                redirect('blog');
+            }
         }
-
-
-        // if ($this->form_validation->run() == FALSE) {
-        //     $this->load->view('index', $data);
-        // } else {
-        //     if ($_FILES['blogHeaderImg']['name'] != '') {
-        //         $config['upload_path'] = './assets/images/upload/blog/header_image/';
-        //         $config['allowed_types'] = 'jpg|png|PNG';
-        //         $nmfile = time() . "_" . $_FILES['blogHeaderImg']['name'];
-        //         $config['file_name'] = $nmfile;
-
-        //         $this->load->library('upload');
-        //         $this->upload->initialize($config);
-
-        //         if ($this->upload->do_upload("blogHeaderImg")) {
-        //             $data = array('upload_data' => $this->upload->data());
-
-        //             $header_image = $data['upload_data']['file_name'];
-
-        //             $this->M_Blog->editBlogData($header_image);
-
-        //             $this->session->set_flashdata('flashBlog', 'Data berhasil <strong>diedit</strong>');
-        //             redirect('blog');
-        //         } else {
-        //             $error = array('error' => $this->upload->display_errors());
-        //             // redirect('blog/create', $error);
-        //             echo '<div class="alert alert-danger">' . $error['error'] . '</div>';
-        //         }
-        //     } else {
-        //         $header_image = $this->input->post('old_headerImage');
-        //     }
-        // }
-    }
-    public function editHeaderImage($id)
-    {
-        $data["title"] = "Form Edit Header Image";
-        $data["landingpage"] = false;
-        $data['content'] = 'component/admin/blog/blog_update';
-
-        $data['blog'] = $this->M_Blog->getBlogById($id);
-        $this->load->view('index', $data);
     }
 
     public function action_delete($id)

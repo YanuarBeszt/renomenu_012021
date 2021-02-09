@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Document</title><script type="text/javascript">
+    const BASE_URL = "<?= base_url() ?>";
+</script>
     <!-- Plugins CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/landing-page/plugins/bootstrap-4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="<?= base_url() ?>assets/landing-page/plugins/meanmenu/meanmenu.css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/landing-page/plugins/slick-1.8.1/slick.css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/landing-page/plugins/fancybox-master/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/landing-page/plugins/aos-animation/aos.css" />
@@ -48,7 +49,7 @@
                             <ul class="main-menu">
                                 <li class="menu-item"><a href="<?= base_url() ?>">Beranda</a></li>
                                 <li class="menu-item"><a href="<?= base_url() ?>Bantuan/kategori">Pusat Bantuan</a></li>
-                                <li class="menu-item"><a href="<?= base_url() ?>Blog/">Blog</a></li>
+                                <li class="menu-item"><a href="<?= base_url() ?>list/Blog/">Blog</a></li>
                                 <li class="menu-item"><a href="<?= base_url() ?>Contact">Contact</a></li>
                             </ul>
                         </div>
@@ -92,7 +93,7 @@
                         <ul class="mobile-menu">
                             <li class="menu-item"><a href="<?= base_url() ?>">Beranda</a></li>
                             <li class="menu-item"><a href="<?= base_url() ?>Bantuan/kategori">Pusat Bantuan</a></li>
-                            <li class="menu-item"><a href="<?= base_url() ?>Blog/">Blog</a></li>
+                            <li class="menu-item"><a href="<?= base_url() ?>list/Blog/">Blog</a></li>
                             <li class="menu-item"><a href="<?= base_url() ?>Contact">Contact</a></li>
                         </ul>
                     </nav>
@@ -121,11 +122,9 @@
             </div>
             <div class="category">
                 <?php foreach ($category as $key) : ?>
-                    <a href="">
-                        <div class="cat-item">
+                        <div class="cat-item" id="<?= $key->id; ?>">
                             <span><?= $key->name; ?></span>
                         </div>
-                    </a>
                 <?php endforeach; ?>
             </div>
             <ul class="blog-post columns-3">
@@ -211,7 +210,6 @@
     <script src="<?= base_url() ?>assets/landing-page/plugins/jquery/jquery-migrate.min.js"></script>
     <script src="<?= base_url() ?>assets/landing-page/plugins/bootstrap-4.3.1/js/bootstrap.bundle.js"></script>
     <!-- Plugins JS -->
-    <script src="<?= base_url() ?>assets/landing-page/plugins/meanmenu/jquery.meanmenu.js"></script>
     <script src="<?= base_url() ?>assets/landing-page/plugins/slick-1.8.1/slick.min.js"></script>
     <script src="<?= base_url() ?>assets/landing-page/plugins/fancybox-master/jquery.fancybox.min.js"></script>
     <script src="<?= base_url() ?>assets/landing-page/plugins/aos-animation/aos.js"></script>

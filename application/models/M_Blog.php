@@ -57,6 +57,19 @@ class M_Blog extends CI_Model
         return $query->result();
     }
 
+    public function getByIdTag($id)
+    {
+        $this->db->select('*');
+        $this->db->from("blog_keyword");
+        $this->db->join($this->_table, 'blog.id = blog_keyword.blog_id');
+        $this->db->join("keyword", 'keyword.id = blog_keyword.keyword_id');
+        $this->db->where('blog_keyword.blog_id = ', $id);
+        $this->db->where('blog.is_deleted = ', 'n');
+        $this->db->order_by('blog.created_date', 'ASC');
+
+        $query = $this->db->get();
+        return $query->result();
+    }
     public function storeBlogData($header_image, $keyword)
     {
         $data = [
@@ -81,16 +94,17 @@ class M_Blog extends CI_Model
         $this->db->insert_batch('blog_keyword', $tagged_keyword);
     }
 
-    public function editBlogData($blog_id, $keyword)
+    public function editBlogData($blog_id, $header_image, $keyword)
     {
         $data = [
             'title' => $this->input->post('blogTitle', TRUE),
+            'header_image' => $header_image,
             'content' => $this->input->post('blogContent', TRUE),
-            'last_modified_by' => $this->session->userdata('user_logged')->id,
+            'last_modified_by' => $this->session->userdata('user_logged')->id
         ];
 
         $this->db->where('id', $blog_id);
-        $this->db->update($this->_table, $data);
+        $this->db->update('blog', $data);
 
         $this->db->where('blog_keyword.blog_id', $blog_id);
         $this->db->delete('blog_keyword');
@@ -105,7 +119,11 @@ class M_Blog extends CI_Model
             }
             $this->db->insert_batch('blog_keyword', $tagged_keyword);
         }
+
+        // var_dump($_POST);
+        // die;
     }
+
 
     public function deleteBlogData($id)
     {
