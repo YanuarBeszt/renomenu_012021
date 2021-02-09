@@ -296,7 +296,7 @@ class Blog extends CI_Controller
 	public function Search()
 	{
 		$search =  $this->input->post('search');
-		$query = $this->question->search($search);
+		$query = $this->blog->search($search);
 		echo json_encode($query);
 	}
 }

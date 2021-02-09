@@ -9,8 +9,7 @@
 </script>
     <!-- Plugins CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/landing-page/plugins/bootstrap-4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="<?= base_url() ?>assets/landing-page/plugins/meanmenu/meanmenu.css" />
-    <link rel="stylesheet" href="<?= base_url() ?>assets/landing-page/plugins/slick-1.8.1/slick.css" />
+\    <link rel="stylesheet" href="<?= base_url() ?>assets/landing-page/plugins/slick-1.8.1/slick.css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/landing-page/plugins/fancybox-master/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/landing-page/plugins/aos-animation/aos.css" />
     <!-- fonts -->
@@ -21,6 +20,11 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/landing-page/css/style.css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/landing-page/css/settings.css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/landing-page/css/blog.css" />
+    <script src="<?php echo base_url('assets/admin'); ?>/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="<?php echo base_url('assets/admin'); ?>/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="<?php echo base_url('assets/admin'); ?>/plugins/jquery-ui/jquery-ui.js"></script>
 </head>
 
 <body>
@@ -104,9 +108,12 @@
         <div class="search-area">
             <form id="search-form">
                 <div class="search">
-                    <input type="text" name="search" class="round" style="padding-right: 40px; padding-left:20px;" placeholder="Search" />
+                    <input type="text" name="search" id="search2" class="round" style="padding-right: 40px; padding-left:20px;" placeholder="Search" />
                     <button type="submit" class="corner" /><i class="fa fa-search"></i></button>
-                </div>
+                </div>       
+                <ul id="finalResult2" class="suggestions">
+
+                </ul>
             </form>
             <img class="search-background" src="<?= base_url() ?>assets/landing-page/image/Rijsttafel.jpg" alt="">
         </div>
@@ -201,12 +208,12 @@
             </div>
         </section>
     </div>
+    <script type="text/javascript" src="<?= base_url() . 'assets/landing-page/js/custom.js?' . 'random=' . uniqid() ?> "></script>
     <!-- Vendor JS-->
     <script src="<?= base_url() ?>assets/landing-page/plugins/jquery/jquery.min.js"></script>
     <script src="<?= base_url() ?>assets/landing-page/plugins/jquery/jquery-migrate.min.js"></script>
     <script src="<?= base_url() ?>assets/landing-page/plugins/bootstrap-4.3.1/js/bootstrap.bundle.js"></script>
     <!-- Plugins JS -->
-    <script src="<?= base_url() ?>assets/landing-page/plugins/meanmenu/jquery.meanmenu.js"></script>
     <script src="<?= base_url() ?>assets/landing-page/plugins/slick-1.8.1/slick.min.js"></script>
     <script src="<?= base_url() ?>assets/landing-page/plugins/fancybox-master/jquery.fancybox.min.js"></script>
     <script src="<?= base_url() ?>assets/landing-page/plugins/aos-animation/aos.js"></script>

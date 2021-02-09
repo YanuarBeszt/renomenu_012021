@@ -270,4 +270,11 @@ class Question extends CI_Controller
 		echo json_encode($res);
 		return;
 	}
+
+	public function Search()
+	{
+		$search =  $this->input->post('search');
+		$query = $this->question->search($search);
+		echo json_encode($query);
+	}
 }

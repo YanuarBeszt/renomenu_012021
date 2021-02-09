@@ -186,40 +186,22 @@ class M_Question extends CI_Model
 
     public function search($search)
     {
-        $this->db->select('question.id, question.topic_id, question.question, keyword.name');
+        $this->db->select('question.id, question.category_id, question.question, keyword.name');
         $this->db->like('question.question', $search);
         $this->db->or_like('keyword.name', $search);
         $this->db->join('question', 'question_keyword.question_id = question.id');
         $this->db->join('keyword', 'question_keyword.keyword_id = keyword.id');
-        $this->db->where('question.language', 1);
+        $this->db->where('question.is_deleted', 'n');
         $result = $this->db->get('question_keyword')->result();
+
         if ($result == null) {
-            $this->db->select('question.id, question.topic_id, question');
+            $this->db->select('question.id, question.category_id, question.question');
             $this->db->like('question', $search);
-            $this->db->where('question.language', 1);
-            return $this->db->get($this->_table)->result();
+        $this->db->where('question.is_deleted', 'n');
+        return $this->db->get($this->_table)->result();
         }
+
         return $result;
     }
 
-    public function searchEn($search)
-    {
-        $this->db->select('question.id, question.topic_id, question.question, keyword.name');
-        $this->db->like('question.question', $search);
-        $this->db->or_like('keyword.name', $search);
-        $this->db->join('question', 'question_keyword.question_id = question.id');
-        $this->db->join('keyword', 'question_keyword.keyword_id = keyword.id');
-        $this->db->where('question.language', 2);
-        $result = $this->db->get('question_keyword')->result();
-        if ($result == null) {
-            $this->db->select('question.id, question.topic_id, question');
-            $this->db->like('question', $search);
-            return $this->db->get($this->_table)->result();
-        }
-        return $result;
-    }
-    // public function getByIdPF($id)
-    // {
-    //     return $this->db->get_where($this->_table, ["idPF" => $id])->result();
-    // }
 }

@@ -108,10 +108,10 @@
                 <div class="search">
                     <input type="text" name="search" id="search" class="round" style="padding-right: 40px; padding-left:20px;" placeholder="Search" />
                     <button type="submit" class="corner" /><i class="fa fa-search"></i></button>
-                </div>
-                <div class="input-group-append">
-                    <button class="genric-btn info radius" type="button"><i class="ti-search"></i></button>
-                </div>
+                </div>       
+                <ul id="finalResult" class="suggestions">
+
+                </ul>
             </form>
             <img class="search-background" src="<?= base_url() ?>assets/landing-page/image/Rijsttafel.jpg" alt="">
         </div>

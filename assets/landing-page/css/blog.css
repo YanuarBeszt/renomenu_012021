@@ -33,7 +33,7 @@
 
 nav a {
 	text-decoration: none;
-	color: #cad3e0;
+	color: #7a7a7a;
 }
 
 ul.blog-post {
@@ -289,4 +289,48 @@ ul.blog-post.columns-3 li {
 	.contactSubmit{
 		margin-bottom: 40px;
 	}
+}
+
+ul.suggestions {
+	width: 100%; /* its width according to input width */
+	height: auto;
+	display: none;
+	padding: 0px;
+	margin: 0px;
+	margin-top: 40px;
+	margin-left: 25%;
+	border-radius: 5px;
+	position: absolute;
+	display: inline-block;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	z-index: 200;
+}
+/* if you want style so that's why i use "li a" also */
+ul.suggestions li {
+	background-color: rgb(255, 255, 255);
+	width: 50%;
+	color: rgb(65, 65, 65);
+	font-size: 18px; /* according to your requirement */
+	font-weight: normal;
+	padding: 10px;
+	margin: 0px;
+	line-height: 20px; /* according to your requirement */
+	display: block;
+	border-radius: 10px;
+}
+ul.suggestions li:hover,
+ul.suggestions li a:hover {
+	background-color:#ffbbbb;
+	color: rgb(117, 117, 117);
+	border-radius: 10px;
+	font-weight: medium;
+}
+ul.suggestions li:hover .suggested_input {
+	background-color: #ffffff;
+	border: 1px solid #e50505;
+}
+.suggested_input:hover .suggestions {
+	display: block;
 }

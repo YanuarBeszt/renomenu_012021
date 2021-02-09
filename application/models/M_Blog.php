@@ -216,17 +216,19 @@ class M_Blog extends CI_Model
     
     public function search($search)
     {
-        $this->db->select('blog.id, blog.keyword_id, blog.blog, keyword.name');
-        $this->db->like('blog.blog', $search);
+        $this->db->select('blog.id, blog_keyword.keyword_id, blog.title, keyword.name');
+        $this->db->like('blog.title', $search);
         $this->db->or_like('keyword.name', $search);
         $this->db->join('blog', 'blog_keyword.blog_id = blog.id');
         $this->db->join('keyword', 'blog_keyword.keyword_id = keyword.id');
+        $this->db->where('blog.is_deleted', 'n');
         $result = $this->db->get('blog_keyword')->result();
 
         if ($result == null) {
-            $this->db->select('blog.id, blog.blog');
+            $this->db->select('blog.id, blog.title');
             $this->db->like('blog', $search);
-            return $this->db->get($this->_table)->result();
+        $this->db->where('blog.is_deleted', 'n');
+        return $this->db->get($this->_table)->result();
         }
 
         return $result;
